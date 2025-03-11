@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Matrix on MooNight Xu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/matrix/</link>
+        <description>Recent content in Matrix on MooNight Xu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>MooNight Xu</copyright>
+        <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/matrix/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Punching Hole Technique</title>
+        <link>http://localhost:1313/p/punching-hole-technique/</link>
+        <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/punching-hole-technique/</guid>
+        <description>&lt;img src="http://localhost:1313/p/punching-hole-technique/SMW-slide.jpg" alt="Featured image of post Punching Hole Technique" /&gt;&lt;p&gt;In the tutorial of MAT2041A Linear Algebra and Applications, I constructed a proof of the Sherman-Morrison-Woodbury Formula to demonstrate the potential of block matrices.&lt;/p&gt;
+&lt;h2 id=&#34;sherman-morrison-woodbury-formula&#34;&gt;Sherman-Morrison-Woodbury Formula
+&lt;/h2&gt;&lt;h3 id=&#34;theorem&#34;&gt;Theorem
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Sherman-Morrison-Woodbury Formula&lt;/strong&gt;: Given $4$ matrices $\textbf{A} \in \mathbb{R}^{p\times p},\textbf{U} \in \mathbb{R}^{p\times q},\textbf{V} \in \mathbb{R}^{q\times p},\textbf{C} \in \mathbb{R}^{q\times q}$, where $\textbf{A},\textbf{C}, \begin{bmatrix} \textbf{A} &amp;amp; \textbf{U} \\ \textbf{V} &amp;amp; \textbf{C} \end{bmatrix}$ are invertible. Then,&lt;/p&gt;
+$$(\textbf{A}+\textbf{U}\textbf{C}\textbf{V})^{-1} = \textbf{A}^{-1} - \textbf{A}^{-1}\textbf{U}(\textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U})^{-1}\textbf{V}\textbf{A}^{-1} \stackrel{\Delta}{=} f(\textbf{A},\textbf{C},\textbf{U},\textbf{V})$$&lt;/blockquote&gt;
+&lt;h3 id=&#34;proof&#34;&gt;Proof
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;We can observe that&lt;/em&gt;&lt;/p&gt;
+$$\small\begin{aligned}\begin{bmatrix}
+f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) &amp; \textbf{O} \\\\ ? &amp; \textbf{I}_q \end{bmatrix} 
+&amp;= \begin{bmatrix} \textbf{I}_p &amp; -\textbf{A}^{-1}\textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\ \textbf{O} &amp; (\textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U})^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{A}^{-1} &amp; \textbf{A}^{-1}\textbf{U} \\\\ \textbf{V}\textbf{A}^{-1} &amp; \textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U} \end{bmatrix} \\\\
+&amp;= \begin{bmatrix} \textbf{I}_p &amp; -\textbf{A}^{-1}\textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\ \textbf{O} &amp; (\textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U})^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{A}^{-1} &amp; \textbf{O} \\\\ \textbf{V}\textbf{A}^{-1} &amp; \textbf{C}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix}\end{aligned}$$&lt;p&gt;&lt;em&gt;Multiply the four block matrices on the right to $\begin{bmatrix}\textbf{A}+\textbf{U}\textbf{C}\textbf{V} &amp;amp; \textbf{O} \\ \textbf{O} &amp;amp; \textbf{I}_q\end{bmatrix}$ and derive an identity matrix at top-left, which implies that $(\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p$.&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
+&lt;h3 id=&#34;computation&#34;&gt;Computation
+&lt;/h3&gt;&lt;p&gt;Let $\textbf{D} \stackrel{\Delta}{=} \textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U}$, then&lt;/p&gt;
+$$\small\begin{aligned} &amp;\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\textbf{V} &amp; \textbf{O} \\\\ \textbf{O} &amp; \textbf{I} \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; -\textbf{A}^{-1}\textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q\end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\ \textbf{O} &amp; (\textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U})^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{A}^{-1} &amp; \textbf{O} \\\\ \textbf{V}\textbf{A}^{-1} &amp; \textbf{C}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} \\\\
+=&amp; \begin{bmatrix}\textbf{A}+\textbf{U}\textbf{C}\textbf{V} &amp; -\textbf{U}-\textbf{U}\textbf{C}\textbf{V}\textbf{A}^{-1}\textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q\end{bmatrix} 
+\begin{bmatrix}\textbf{I}_p &amp; \textbf{O} \\\\ \textbf{O} &amp; \textbf{D}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{A}^{-1} &amp; \textbf{O} \\\\ \textbf{V}\textbf{A}^{-1} &amp; \textbf{C}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} \\\\
+=&amp; \begin{bmatrix} \textbf{A}+\textbf{U}\textbf{C}\textbf{V} &amp; -\textbf{U}\textbf{C}\textbf{D}\\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\ \textbf{O} &amp; \textbf{D}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{A}^{-1} &amp; \textbf{O} \\\\ \textbf{V}\textbf{A}^{-1} &amp; \textbf{C}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} \\\\
+=&amp; \begin{bmatrix} \textbf{A}+\textbf{U}\textbf{C}\textbf{V} &amp; -\textbf{U}\textbf{C} \\\\ \textbf{O} &amp; \textbf{D}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{A}^{-1} &amp; \textbf{O} \\\\ \textbf{V}\textbf{A}^{-1} &amp; \textbf{C}^{-1} \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\ \textbf{O} &amp; \textbf{I}_q \end{bmatrix} \\\\
+=&amp; \begin{bmatrix} \textbf{I}_p &amp; -\textbf{U} \\\\ ? &amp; ? \end{bmatrix} 
+\begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\\textbf{O} &amp; \textbf{I}_q\end{bmatrix}
+= \begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\? &amp; ?\end{bmatrix} \\\\
+\Rightarrow &amp; (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$</description>
+        </item>
+        
+    </channel>
+</rss>

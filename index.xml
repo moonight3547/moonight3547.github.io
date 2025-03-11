@@ -2,19 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>MooNight Xu&#39;s Blog</title>
-        <link>https://moonight3547.github.io/</link>
+        <link>http://localhost:1313/</link>
         <description>Recent content on MooNight Xu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Punching Hole Technique</title>
-        <link>https://moonight3547.github.io/p/punching-hole-technique/</link>
+        <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>First Order Method</title>
+        <link>http://localhost:1313/p/first-order-method/</link>
+        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/first-order-method/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linear Algebra - Punching Hole Technique on Matrices</title>
+        <link>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://moonight3547.github.io/p/punching-hole-technique/</guid>
-        <description>&lt;img src="https://moonight3547.github.io/p/punching-hole-technique/SMW-slide.jpg" alt="Featured image of post Punching Hole Technique" /&gt;&lt;h2 id=&#34;sherman-morrison-woodbury-formula&#34;&gt;Sherman-Morrison-Woodbury Formula
-&lt;/h2&gt;&lt;h3 id=&#34;theorem&#34;&gt;Theorem
+        <guid>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</guid>
+        <description>&lt;img src="http://localhost:1313/p/punching-hole-technique/SMW-slide.jpg" alt="Featured image of post Linear Algebra - Punching Hole Technique on Matrices" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
+&lt;/h2&gt;&lt;p&gt;In the tutorial of MAT2041A Linear Algebra and Applications, I constructed a proof of the Sherman-Morrison-Woodbury Formula to demonstrate the potential of block matrices.&lt;/p&gt;
+&lt;h3 id=&#34;sherman-morrison-woodbury-formula&#34;&gt;Sherman-Morrison-Woodbury Formula
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Sherman-Morrison-Woodbury Formula&lt;/strong&gt;: Given $4$ matrices $\textbf{A} \in \mathbb{R}^{p\times p},\textbf{U} \in \mathbb{R}^{p\times q},\textbf{V} \in \mathbb{R}^{q\times p},\textbf{C} \in \mathbb{R}^{q\times q}$, where $\textbf{A},\textbf{C}, \begin{bmatrix} \textbf{A} &amp;amp; \textbf{U} \\ \textbf{V} &amp;amp; \textbf{C} \end{bmatrix}$ are invertible. Then,&lt;/p&gt;
 $$(\textbf{A}+\textbf{U}\textbf{C}\textbf{V})^{-1} = \textbf{A}^{-1} - \textbf{A}^{-1}\textbf{U}(\textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U})^{-1}\textbf{V}\textbf{A}^{-1} \stackrel{\Delta}{=} f(\textbf{A},\textbf{C},\textbf{U},\textbf{V})$$&lt;/blockquote&gt;
@@ -51,22 +60,76 @@ $$\small\begin{aligned} &amp;\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\t
 =&amp; \begin{bmatrix} \textbf{I}_p &amp; -\textbf{U} \\\\ ? &amp; ? \end{bmatrix} 
 \begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\\textbf{O} &amp; \textbf{I}_q\end{bmatrix}
 = \begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\? &amp; ?\end{bmatrix} \\\\
-\Rightarrow &amp; (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$</description>
+\Rightarrow &amp; (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$&lt;h2 id=&#34;idea-punching-hole-technique&#34;&gt;Idea: Punching Hole Technique
+&lt;/h2&gt;&lt;p&gt;The &amp;ldquo;observed&amp;rdquo; block matrix multiplication actually creates identity matrices and zero matrices as sub-matrices.
+The related technique introduced by Hua Loo-Keng is called &amp;ldquo;Punching Hole&amp;rdquo; Principle (打洞原理 in Chinese) where the zero matrices are the holes in block matrices.&lt;/p&gt;
+&lt;h3 id=&#34;rank-of-block-matrices&#34;&gt;Rank of Block Matrices
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Guttman rank additivity formula:&lt;/strong&gt;
+If a block matrix $\mathbf{P}$ of $2\times 2$ sub-matrices with left-top sub-matrix $\mathbf{A}$ nonsingular, then&lt;/p&gt;
+$$\small\begin{aligned}
+&gt;\text{rank}(\mathbf{P}) = \text{rank}(\begin{bmatrix}
+&gt;\mathbf{A} &amp; \mathbf{B} \\\\
+&gt;\mathbf{C} &amp; \mathbf{D}
+&gt;\end{bmatrix}) = \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
+&gt;\end{aligned}$$&lt;p&gt;
+where $\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B}$ is $\mathbf{A}$&amp;rsquo;s Schur Complement, written as $\mathbf{P} / \mathbf{A}$.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt;&lt;/p&gt;
+$$\small\begin{aligned}
+\text{rank}(\begin{bmatrix} \mathbf{A} &amp; \mathbf{B} \\\\ \mathbf{C} &amp; \mathbf{D} \end{bmatrix}) 
+&amp;= \text{rank}(\begin{bmatrix} \mathbf{I} &amp; \mathbf{O} \\\\ -\mathbf{C}\mathbf{A}^{-1} &amp; \mathbf{I} \end{bmatrix}
+\begin{bmatrix} \mathbf{A} &amp; \mathbf{B} \\\\ \mathbf{C} &amp; \mathbf{D} \end{bmatrix} 
+\begin{bmatrix} \mathbf{I} &amp; -\mathbf{A}^{-1}\mathbf{B} \\\\ \mathbf{O} &amp; \mathbf{I} \end{bmatrix}) \\\\
+&amp;= \text{rank}(\begin{bmatrix} \mathbf{A} &amp; \mathbf{B} \\\\ \mathbf{O} &amp; \mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B} \end{bmatrix} 
+\begin{bmatrix} \mathbf{I} &amp; -\mathbf{A}^{-1}\mathbf{B} \\\\ \mathbf{O} &amp; \mathbf{I} \end{bmatrix}) \\\\
+&amp;= \text{rank}(\begin{bmatrix} \mathbf{A} &amp; \mathbf{O} \\\\ \mathbf{O} &amp; \mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B} \end{bmatrix})
+= \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
+\end{aligned}$$&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
+&lt;h2 id=&#34;extension-block-matrix-rank-inequality&#34;&gt;Extension: Block Matrix Rank Inequality
+&lt;/h2&gt;&lt;h3 id=&#34;sylvester-inequality&#34;&gt;Sylvester Inequality
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Sylvester Inequality:&lt;/strong&gt; For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}$, then&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt; By Guttman rank additivity formula with $\mathbf{A} = \mathbf{I}_n$, then&lt;/p&gt;
+$$\small \begin{aligned}\text{rank}(\begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix})
+ &amp;= \text{rank}(\begin{bmatrix} \mathbf{I}_{n} &amp; \mathbf{O} \\\\ -\mathbf{A} &amp; \mathbf{I}_{m}\end{bmatrix}
+ \begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix}
+ \begin{bmatrix} \mathbf{I}_{n} &amp; -\mathbf{B} \\\\ \mathbf{O} &amp; \mathbf{I}_{k}\end{bmatrix}) \\\\
+ &amp;= \text{rank}(\begin{bmatrix} \mathbf{I} &amp; \mathbf{O}_{n\times k} \\\\ \mathbf{O}_{m\times n} &amp; -\mathbf{AB} \end{bmatrix}) 
+ = \text{rank}(\mathbf{B}) + \text{rank}(\mathbf{AB}) = n + \text{rank}(\mathbf{AB})
+ \end{aligned}$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) = \text{rank}(\begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix}) - n \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
+&lt;h3 id=&#34;frobenius-inequality&#34;&gt;Frobenius Inequality
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Frobenius Inequality:&lt;/strong&gt; For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}, \mathbf{C} \in \mathbb{R}^{k\times l}$, then&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC}) \le \text{rank}(\mathbf{ABC}) + \text{rank}(\mathbf{B})$$&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt; Similar with Guttman rank additivity formula (but note that we don&amp;rsquo;t have inverse matrix of $\mathbf{A}$),&lt;/p&gt;
+$$\small \begin{aligned}\text{rank}(\begin{bmatrix} \mathbf{B} &amp; \mathbf{BC} \\\\ \mathbf{AB} &amp; \mathbf{O}_{m\times l}\end{bmatrix})
+ &amp;= \text{rank}(\begin{bmatrix} \mathbf{I}_{n} &amp; \mathbf{O} \\\\ -\mathbf{A} &amp; \mathbf{I}_{m}\end{bmatrix}\begin{bmatrix} \mathbf{B} &amp; \mathbf{BC} \\\\ \mathbf{AB} &amp; \mathbf{O}_{m\times l}\end{bmatrix}
+ \begin{bmatrix} \mathbf{I}_{k} &amp; -\mathbf{C} \\\\ \mathbf{O} &amp; \mathbf{I}_{l}\end{bmatrix}) 
+ = \text{rank}(\begin{bmatrix} \mathbf{B} &amp; \mathbf{O}_{n\times l} \\\\ \mathbf{O}_{m\times k} &amp; -\mathbf{ABC} \end{bmatrix}) 
+ = \text{rank}(\mathbf{B}) + \text{rank}(\mathbf{ABC})
+ \end{aligned}$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC}) 
+ = \text{rank}(\begin{bmatrix} \mathbf{O}_{n\times k} &amp; \mathbf{BC} \\\\ \mathbf{AB} &amp; \mathbf{O}_{m\times l}\end{bmatrix}) 
+ \le \text{rank}(\begin{bmatrix} \mathbf{B} &amp; \mathbf{BC} \\\\ \mathbf{AB} &amp; \mathbf{O}_{m\times l}\end{bmatrix}) 
+ = \text{rank}(\mathbf{ABC}) + \text{rank}(\mathbf{B})$$&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>Archives</title>
-        <link>https://moonight3547.github.io/archives/</link>
+        <link>http://localhost:1313/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://moonight3547.github.io/archives/</guid>
+        <guid>http://localhost:1313/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>About</title>
-        <link>https://moonight3547.github.io/about/</link>
+        <link>http://localhost:1313/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://moonight3547.github.io/about/</guid>
+        <guid>http://localhost:1313/about/</guid>
         <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Apache License 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
 &lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
@@ -90,19 +153,11 @@ $$\small\begin{aligned} &amp;\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\t
 </description>
         </item>
         <item>
-        <title></title>
-        <link>https://moonight3547.github.io/p/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://moonight3547.github.io/p/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>Links</title>
-        <link>https://moonight3547.github.io/links/</link>
+        <link>http://localhost:1313/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://moonight3547.github.io/links/</guid>
+        <guid>http://localhost:1313/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -134,10 +189,10 @@ $$\small\begin{aligned} &amp;\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\t
         </item>
         <item>
         <title>Search</title>
-        <link>https://moonight3547.github.io/search/</link>
+        <link>http://localhost:1313/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://moonight3547.github.io/search/</guid>
+        <guid>http://localhost:1313/search/</guid>
         <description></description>
         </item>
         

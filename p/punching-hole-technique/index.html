@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Linear Algebra - Punching hole technique on matrices">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Linear Algebra - Punching Hole Technique on Matrices">
 <title>Punching Hole Technique</title>
 
-<link rel='canonical' href='https://moonight3547.github.io/p/punching-hole-technique/'>
+<link rel='canonical' href='http://localhost:1313/p/punching-hole-technique/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Punching Hole Technique">
-<meta property='og:description' content="Linear Algebra - Punching hole technique on matrices">
-<meta property='og:url' content='https://moonight3547.github.io/p/punching-hole-technique/'>
+<meta property='og:description' content="Linear Algebra - Punching Hole Technique on Matrices">
+<meta property='og:url' content='http://localhost:1313/p/punching-hole-technique/'>
 <meta property='og:site_name' content='MooNight Xu&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-03-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://moonight3547.github.io/p/punching-hole-technique/SMW-slide.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linear algebra' /><meta property='article:tag' content='block matrix' /><meta property='article:tag' content='punching hole' /><meta property='article:published_time' content='2025-03-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-03-08T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/punching-hole-technique/SMW-slide.jpg' />
 <meta name="twitter:title" content="Punching Hole Technique">
-<meta name="twitter:description" content="Linear Algebra - Punching hole technique on matrices"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://moonight3547.github.io/p/punching-hole-technique/SMW-slide.jpg' />
+<meta name="twitter:description" content="Linear Algebra - Punching Hole Technique on Matrices"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/punching-hole-technique/SMW-slide.jpg' />
     </head>
     <body class="
     article-page
@@ -57,8 +57,8 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_f509edb42ecc0ebd.png" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                        <img src="/img/avatar_hu_d2b4e7a964e339d3.jpg" width="300"
+                            height="177" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
                 </a>
@@ -246,11 +246,22 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#sherman-morrison-woodbury-formula">Sherman-Morrison-Woodbury Formula</a>
+    <li><a href="#introduction-a-proof-of-smw-formula">Introduction: A Proof of SMW Formula</a>
       <ol>
-        <li><a href="#theorem">Theorem</a></li>
+        <li><a href="#sherman-morrison-woodbury-formula">Sherman-Morrison-Woodbury Formula</a></li>
         <li><a href="#proof">Proof</a></li>
         <li><a href="#computation">Computation</a></li>
+      </ol>
+    </li>
+    <li><a href="#punching-hole-technique">Punching Hole Technique</a>
+      <ol>
+        <li><a href="#rank-of-block-matrices">Rank of Block Matrices</a></li>
+      </ol>
+    </li>
+    <li><a href="#extension-block-matrix-rank-inequality">Extension: Block Matrix Rank Inequality</a>
+      <ol>
+        <li><a href="#sylvester-inequality">Sylvester Inequality</a></li>
+        <li><a href="#frobenius-inequality">Frobenius Inequality</a></li>
       </ol>
     </li>
   </ol>
@@ -281,6 +292,18 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/linear-algebra/" >
+                Linear Algebra
+            </a>
+        
+            <a href="/categories/matrix-analysis/" >
+                Matrix Analysis
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
@@ -289,7 +312,7 @@
     
         
         <h3 class="article-subtitle">
-            Linear Algebra - Punching hole technique on matrices
+            Linear Algebra - Punching Hole Technique on Matrices
         </h3>
         
     </div>
@@ -325,7 +348,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -340,8 +363,9 @@
     <section class="article-content">
     
     
-    <h2 id="sherman-morrison-woodbury-formula">Sherman-Morrison-Woodbury Formula
-</h2><h3 id="theorem">Theorem
+    <h2 id="introduction-a-proof-of-smw-formula">Introduction: A Proof of SMW Formula
+</h2><p>In the tutorial of MAT2041A Linear Algebra and Applications, I constructed a proof of the Sherman-Morrison-Woodbury Formula to demonstrate the potential of block matrices.</p>
+<h3 id="sherman-morrison-woodbury-formula">Sherman-Morrison-Woodbury Formula
 </h3><blockquote>
 <p><strong>Sherman-Morrison-Woodbury Formula</strong>: Given $4$ matrices $\textbf{A} \in \mathbb{R}^{p\times p},\textbf{U} \in \mathbb{R}^{p\times q},\textbf{V} \in \mathbb{R}^{q\times p},\textbf{C} \in \mathbb{R}^{q\times q}$, where $\textbf{A},\textbf{C}, \begin{bmatrix} \textbf{A} &amp; \textbf{U} \\ \textbf{V} &amp; \textbf{C} \end{bmatrix}$ are invertible. Then,</p>
 $$(\textbf{A}+\textbf{U}\textbf{C}\textbf{V})^{-1} = \textbf{A}^{-1} - \textbf{A}^{-1}\textbf{U}(\textbf{C}^{-1}+\textbf{V}\textbf{A}^{-1}\textbf{U})^{-1}\textbf{V}\textbf{A}^{-1} \stackrel{\Delta}{=} f(\textbf{A},\textbf{C},\textbf{U},\textbf{V})$$</blockquote>
@@ -378,12 +402,72 @@ $$\small\begin{aligned} &\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\textb
 =& \begin{bmatrix} \textbf{I}_p & -\textbf{U} \\\\ ? & ? \end{bmatrix} 
 \begin{bmatrix} \textbf{I}_p & \textbf{U} \\\\\textbf{O} & \textbf{I}_q\end{bmatrix}
 = \begin{bmatrix} \textbf{I}_p & \textbf{O} \\\\? & ?\end{bmatrix} \\\\
-\Rightarrow & (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$
+\Rightarrow & (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$<h2 id="punching-hole-technique">Punching Hole Technique
+</h2><p>The &ldquo;observed&rdquo; block matrix multiplication actually creates identity matrices and zero matrices as sub-matrices.
+The related technique introduced by Hua Loo-Keng is called &ldquo;Punching Hole&rdquo; Principle (打洞原理 in Chinese) where the zero matrices are the holes in block matrices.</p>
+<h3 id="rank-of-block-matrices">Rank of Block Matrices
+</h3><p><strong>Guttman rank additivity formula:</strong>
+If a block matrix $\mathbf{P}$ of $2\times 2$ sub-matrices with left-top sub-matrix $\mathbf{A}$ nonsingular, then</p>
+$$\small\begin{aligned}
+\text{rank}(\mathbf{P}) = \text{rank}(\begin{bmatrix}
+\mathbf{A} & \mathbf{B} \\\\
+\mathbf{C} & \mathbf{D}
+\end{bmatrix}) = \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
+\end{aligned}$$<p>
+where $\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B}$ is $\mathbf{A}$&rsquo;s Schur Complement, written as $\mathbf{P} / \mathbf{A}$.</p>
+<p><strong>Proof:</strong></p>
+$$\small\begin{aligned}
+\text{rank}(\begin{bmatrix} \mathbf{A} & \mathbf{B} \\\\ \mathbf{C} & \mathbf{D} \end{bmatrix}) 
+&= \text{rank}(\begin{bmatrix} \mathbf{I} & \mathbf{O} \\\\ -\mathbf{C}\mathbf{A}^{-1} & \mathbf{I} \end{bmatrix}
+\begin{bmatrix} \mathbf{A} & \mathbf{B} \\\\ \mathbf{C} & \mathbf{D} \end{bmatrix} 
+\begin{bmatrix} \mathbf{I} & -\mathbf{A}^{-1}\mathbf{B} \\\\ \mathbf{O} & \mathbf{I} \end{bmatrix}) \\\\
+&= \text{rank}(\begin{bmatrix} \mathbf{A} & \mathbf{B} \\\\ \mathbf{O} & \mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B} \end{bmatrix} 
+\begin{bmatrix} \mathbf{I} & -\mathbf{A}^{-1}\mathbf{B} \\\\ \mathbf{O} & \mathbf{I} \end{bmatrix}) \\\\
+&= \text{rank}(\begin{bmatrix} \mathbf{A} & \mathbf{O} \\\\ \mathbf{O} & \mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B} \end{bmatrix})
+= \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
+\end{aligned}$$<p style="text-align: right;">$\square$</p>
+<h2 id="extension-block-matrix-rank-inequality">Extension: Block Matrix Rank Inequality
+</h2><h3 id="sylvester-inequality">Sylvester Inequality
+</h3><p><strong>Sylvester Inequality:</strong> For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}$, then</p>
+$$\text{rank}(\mathbf{AB}) \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$<p><strong>Proof:</strong> By Guttman rank additivity formula with $\mathbf{A} = \mathbf{I}_n$, then</p>
+$$\small \begin{aligned}\text{rank}(\begin{bmatrix} \mathbf{I}_n & \mathbf{B} \\\\ \mathbf{A} & \mathbf{O}_{m\times k}\end{bmatrix})
+ &= \text{rank}(\begin{bmatrix} \mathbf{I}_{n} & \mathbf{O} \\\\ -\mathbf{A} & \mathbf{I}_{m}\end{bmatrix}
+ \begin{bmatrix} \mathbf{I}_n & \mathbf{B} \\\\ \mathbf{A} & \mathbf{O}_{m\times k}\end{bmatrix}
+ \begin{bmatrix} \mathbf{I}_{n} & -\mathbf{B} \\\\ \mathbf{O} & \mathbf{I}_{k}\end{bmatrix}) \\\\
+ &= \text{rank}(\begin{bmatrix} \mathbf{I} & \mathbf{O}_{n\times k} \\\\ \mathbf{O}_{m\times n} & -\mathbf{AB} \end{bmatrix}) 
+ = \text{rank}(\mathbf{B}) + \text{rank}(\mathbf{AB}) = n + \text{rank}(\mathbf{AB})
+ \end{aligned}$$<p>Therefore,</p>
+$$\text{rank}(\mathbf{AB}) = \text{rank}(\begin{bmatrix} \mathbf{I}_n & \mathbf{B} \\\\ \mathbf{A} & \mathbf{O}_{m\times k}\end{bmatrix}) - n \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$<p>.</p>
+<p style="text-align: right;">$\square$</p>
+<h3 id="frobenius-inequality">Frobenius Inequality
+</h3><p><strong>Frobenius Inequality:</strong> For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}, \mathbf{C} \in \mathbb{R}^{k\times l}$, then</p>
+$$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC}) \le \text{rank}(\mathbf{ABC}) + \text{rank}(\mathbf{B})$$<p><strong>Proof:</strong> Similar with Guttman rank additivity formula (but note that we don&rsquo;t have inverse matrix of $\mathbf{A}$),</p>
+$$\small \begin{aligned}\text{rank}(\begin{bmatrix} \mathbf{B} & \mathbf{BC} \\\\ \mathbf{AB} & \mathbf{O}_{m\times l}\end{bmatrix})
+ &= \text{rank}(\begin{bmatrix} \mathbf{I}_{n} & \mathbf{O} \\\\ -\mathbf{A} & \mathbf{I}_{m}\end{bmatrix}\begin{bmatrix} \mathbf{B} & \mathbf{BC} \\\\ \mathbf{AB} & \mathbf{O}_{m\times l}\end{bmatrix}
+ \begin{bmatrix} \mathbf{I}_{k} & -\mathbf{C} \\\\ \mathbf{O} & \mathbf{I}_{l}\end{bmatrix}) 
+ = \text{rank}(\begin{bmatrix} \mathbf{B} & \mathbf{O}_{n\times l} \\\\ \mathbf{O}_{m\times k} & -\mathbf{ABC} \end{bmatrix}) 
+ = \text{rank}(\mathbf{B}) + \text{rank}(\mathbf{ABC})
+ \end{aligned}$$<p>Therefore,</p>
+$$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC}) 
+ = \text{rank}(\begin{bmatrix} \mathbf{O}_{n\times k} & \mathbf{BC} \\\\ \mathbf{AB} & \mathbf{O}_{m\times l}\end{bmatrix}) 
+ \le \text{rank}(\begin{bmatrix} \mathbf{B} & \mathbf{BC} \\\\ \mathbf{AB} & \mathbf{O}_{m\times l}\end{bmatrix}) 
+ = \text{rank}(\mathbf{ABC}) + \text{rank}(\mathbf{B})$$<p style="text-align: right;">$\square$</p>
+
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/linear-algebra/">Linear Algebra</a>
+        
+            <a href="/tags/block-matrix/">Block Matrix</a>
+        
+            <a href="/tags/punching-hole/">Punching Hole</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -580,7 +664,7 @@ $$\small\begin{aligned} &\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\textb
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.51ee9eb95c207866d2be86fbef98b760ba77ae2c25faed3ec71a3fb5071118ff.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
