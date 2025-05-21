@@ -7,18 +7,18 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>First-Order Method</title>
-        <link>http://localhost:1313/tags/first-order-method/</link>
-        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Geometry</title>
+        <link>http://localhost:1313/tags/geometry/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/first-order-method/</guid>
+        <guid>http://localhost:1313/tags/geometry/</guid>
         <description></description>
         </item>
         <item>
         <title>Manifold</title>
         <link>http://localhost:1313/tags/manifold/</link>
-        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/tags/manifold/</guid>
         <description></description>
@@ -26,9 +26,33 @@
         <item>
         <title>Optimization</title>
         <link>http://localhost:1313/tags/optimization/</link>
-        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/tags/optimization/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Second-Order</title>
+        <link>http://localhost:1313/tags/second-order/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/second-order/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>First-Order</title>
+        <link>http://localhost:1313/tags/first-order/</link>
+        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/first-order/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>First-Order Method</title>
+        <link>http://localhost:1313/tags/first-order-method/</link>
+        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/first-order-method/</guid>
         <description></description>
         </item>
         <item>

@@ -1,0 +1,387 @@
+\documentclass{article}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{setspace}%使用间距宏包
+\usepackage[bottom=1.5cm,top=1cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{amsthm}
+%
+% --- inline annotations
+%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\ans}[1]{{\color{blue} #1}}
+
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{proof}{Proof}%[section]
+\renewcommand{\P}{\operatorname{P}}
+\newcommand{\C}{\operatorname{C}}
+\renewcommand{\H}{\operatorname{H}}
+\newcommand{\partd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\partdL}[1]{\frac{\partial{\mathcal{L}}}{\partial{#1}}}
+\newcommand{\deri}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+\newcommand{\grad}[2]{\nabla_{#1}{#2}}
+\newcommand{\hess}[1]{\nabla^2{#1}}
+\newcommand{\normtwo}[1]{\parallel #1 \parallel}
+\newcommand{\normF}[1]{\parallel #1 \parallel_F^2}
+\newcommand{\Expe}[2]{\mathbb{E}_{#1}\left[{#2}\right]}
+\newcommand{\CondNum}[1]{\kappa\left({#1}\right)}
+\newcommand{\Lim}[1]{\lim\limits_{#1 \to \infty}}
+\newcommand{\Tang}[2]{\operatorname{T}_{#1}{\mathcal{#2}}}
+\newcommand{\Proj}[2]{\operatorname{Proj}_{#1}{\left(#2\right)}}
+\newcommand{\VecF}[1]{\mathfrak{X}(\mathcal{#1})}
+\newcommand{\SmFunc}[1]{\mathfrak{F}(\mathcal{#1})}
+\newcommand{\Conn}[3]{#1\nabla_{#2}{#3}}
+\newcommand{\DirDeri}[3]{\operatorname{D}{#1}(#2)[#3]}
+
+\def\scrA{\mathscr{A}}
+\def\scrB{\mathscr{B}}
+\def\scrC{\mathscr{C}}
+\def\scrE{\mathscr{E}}
+\def\scrF{\mathscr{F}}
+\def\scrG{\mathscr{G}}
+\def\scrH{\mathscr{H}}
+\def\scrN{\mathscr{N}}
+\def\scrP{\mathscr{P}}
+\def\scrQ{\mathscr{Q}}
+\def\bbN{\mathbb{N}}
+\def\bbQ{\mathbb{Q}}
+\def\bbR{\mathbb{R}}
+\def\bbZ{\mathbb{Z}}
+\def\txtd{\text{d}}
+\def\bfA{\mathbf{A}}
+\def\bfD{\mathbf{D}}
+\def\bfF{\mathbf{F}}
+\def\bfI{\mathbf{I}}
+\def\bfK{\mathbf{K}}
+\def\bfL{\mathbf{L}}
+\def\bfM{\mathbf{M}}
+\def\bfN{\mathbf{N}}
+\def\bfO{\mathbf{O}}
+\def\bfQ{\mathbf{Q}}
+\def\bfR{\mathbf{R}}
+\def\bfU{\mathbf{U}}
+\def\bfV{\mathbf{V}}
+\def\bfW{\mathbf{W}}
+\def\bfX{\mathbf{X}}
+\def\bfY{\mathbf{Y}}
+\def\bfZ{\mathbf{Z}}
+\def\bfe{\mathbf{e}}
+\def\bff{\mathbf{f}}
+\def\bfg{\mathbf{g}}
+\def\bfr{\mathbf{r}}
+\def\bfu{\mathbf{u}}
+\def\bfv{\mathbf{v}}
+\def\bfw{\mathbf{w}}
+\def\bfx{\mathbf{x}}
+\def\bfy{\mathbf{y}}
+\def\bfz{\mathbf{z}}
+\def\bfWh{\widehat{\mathbf{W}}}
+\def\bfXh{\widehat{\mathbf{X}}}
+\def\bfa{\mathbf{a}}
+\def\bfb{\mathbf{b}}
+\def\bfc{\mathbf{c}}
+\def\bfk{\mathbf{k}}
+\def\bfh{\mathbf{h}}
+\def\bfs{\mathbf{s}}
+\def\one{\mathbf{1}}
+\def\zero{\mathbf{0}}
+\def\calC{\mathcal{C}}
+\def\calD{\mathcal{D}}
+\def\calE{\mathcal{E}}
+\def\calF{\mathcal{F}}
+\def\calJ{\mathcal{J}}
+\def\calL{\mathcal{L}}
+\def\calM{\mathcal{M}}
+\def\calU{\mathcal{U}}
+\def\calV{\mathcal{V}}
+\def\calW{\mathcal{W}}
+\def\eps{\epsilon}
+\def\Exp{\mathcal{E}}
+\def\Ind{\mathbbm{1}}
+\def\Def{\stackrel{\Delta}{=}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+	language=Python, % 使用的语言
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false, % 仅在字符串中允许空格
+	backgroundcolor=\color{white},   % 选择代码背景，必须加上\ usepackage {color}或\ usepackage {xcolor}
+	columns=flexible,
+	basicstyle = \ttfamily\small,
+	numbers=left, % 给代码添加行号，可取值none, left, right.
+	numberstyle=\small \color{gray},  % 行号的字号和颜色
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen}, % 设置注释格式
+	stringstyle=\color{mauve},
+	breaklines=true,   % 设置自动断行.
+	breakatwhitespace=true, % 设置是否当且仅当在空白处自动中断.
+	escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+	frame=single, %设置边框格式
+	extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+	xleftmargin=1em,xrightmargin=0.5em, aboveskip=0.5em, %设置边距
+	tabsize=4 % 将默认tab设置为4个空格
+}
+
+\title{Manifold Optimization Chapter 5: Second-Order Geometry}
+\author{Xu, Yuan (121090658)}
+
+\begin{document}
+\maketitle
+
+\section{Differentiating Vector Fields on Manifolds: Connections}
+
+Notion of derivative for vector fields on manifolds is called a \textit{connection}% (or \textit{affine connection})
+, traditionally denoted by $\nabla$ ("nabla"). Given a tangent vector $u \in \Tang{x}{M}$ and a vector field $V$, $\nabla_uV$ is the derivative of $V$ at $x$ along $u$. Formally, we should write $\nabla_{(x,u)} V$ where the base point $x$ is typically clear from context. \\
+\textbf{Note that we do not need a Riemannian metric yet. }
+\begin{definition}
+A \textit{connection} on a manifold $M$ is an operator
+$$
+\nabla \colon \Tang{}{M} \times \VecF{M} \to \Tang{}{M}: (u, V) \mapsto \nabla_u V
+$$
+where:
+\begin{itemize}
+    \item $\Tang{}{M}$ is the tangent vector space
+    \item $\VecF{M}$ denotes smooth vector fields on $\calM$
+\end{itemize}
+This operator must satisfy four properties for all $u,w \in \Tang{}{M}$, $U,V,W \in \VecF{M}$, $a,b \in \mathbb{R}$, and $f \in C^\infty(\calM)$:
+\begin{enumerate}
+    \item[0.] \textit{Smoothness}: %If $u \in \Tang{}{M}$ and $V \in \VecF{M}$ are smooth, then $\nabla_uV$ is smooth
+    $(\nabla_UV)(x) \Def \nabla_{U(x)}V$ defines a smooth vector field $\nabla_UV$;
+    \item[1.] \textit{Linearity in $u$}: 
+    $\nabla_{au + bw}V = a\nabla_uV + b\nabla_wV$;
+    \item[2.] \textit{Linearity in $V$}: 
+    $\nabla_u(aV + bW) = a\nabla_uV + b\nabla_uW$;
+    \item[3.] \textit{Leibniz rule}: 
+    $\nabla_u(fV) = \DirDeri{f}{x}{u}\cdot V(x) + f(x)\Conn{}{u}{V}$. %f(x)\nabla_uV + (u(f))V$ where $x$ is the base point of $u$.
+\end{enumerate}
+\end{definition}
+
+The field $\nabla_U V$ is called the \textit{covariant derivative} of $V$ along $U$ with respect to $\nabla$.
+
+\begin{theorem}
+Let $\calM$ be an embedded submanifold of a Euclidean space $\calE$. The operator $\nabla$ defined by $$\Conn{}{u}{V} = \Proj{x}{\DirDeri{\bar V}{x}{u}} \label{def-conn-proj}$$ is a connection on $\calM$. 
+\end{theorem}
+
+\begin{proof}
+Let $\calM$ be an embedded submanifold of a Euclidean space $\calE$ by $\bar \nabla$. Then $\nabla_u V = \Proj{x}{\Conn{\bar}{u}{\bar V}}$. 
+\end{proof}
+
+\begin{proposition}
+Let $\calM$ be a maniflod with arbitrary connection $\nabla$. Given a smooth vector field $V \in \VecF{M}$ and a point $x \in \calM$, if $V(x) = 0$ then $\nabla_u V=\DirDeri{V}{x}{u}$ for all $u\in \Tang{x}{M}$. In particular, $\DirDeri{V}{x}{u}$ is tangent at $x$. 
+\end{proposition}
+
+\section{Riemannian Connections}
+
+\begin{definition}
+For $U, V \in \VecF{M}$ and $f \in \SmFunc{U}$ with $\calU$ open in $\calM$, define:
+\begin{itemize}
+\item $Uf \in \SmFunc{U}$ such that $(Uf)(x) = \DirDeri{f(}{x}{U(x)}$;
+\item $[U, V]: \SmFunc{U}\to \SmFunc{U}$ such that $[U,V]f = U(Vf) - V(Uf)$;
+\item $\langle U, V\rangle \in \SmFunc{M}$ such that $\langle U, V\rangle(x) = \langle U(x), V(x)\rangle_x$. 
+\end{itemize}
+\end{definition}
+
+The notation $Uf$ captures the action of a smooth vector field $U$ on a smooth function $f$ through derivation, transforming $f$ into another smooth function. 
+The commutator $[U,V]$ of such action is called the Lie bracket. Even in linear spaces $[U, V ]f$ is nonzero in general. Notice that $Uf = \langle \operatorname{grad}f, U\rangle$ owing to the definitions of $Uf, \langle V, U\rangle$ and $\operatorname{grad} f$. 
+
+\begin{theorem}
+On a Riemannian manifold $\calM$, there exists a unique connection $\nabla$ which satisfies two additional properties for all $U,V,W \in \VecF{M}$:
+\begin{enumerate}
+\item Symmetry: $[U, V] f = (\Conn{}{U}{V} -\Conn{}{V}{U}) f$ for all $f \in \SmFunc{M}$;
+\item Compatibility with the metric: $U\langle V,W\rangle = \langle\Conn{}{U}{V},W\rangle+\langle V,\Conn{}{U}{W}\rangle$.
+\end{enumerate}
+This connection is called the Levi-Civita or Riemannian connection.
+\end{theorem}
+
+\begin{theorem}
+The Riemannian connection on a Euclidean space $\calE$ with any Euclidean metric $\langle \cdot, \cdot \rangle$ is $\Conn{}{u}{V} = \DirDeri{V}{x}{u}$: the canonical Euclidean connection.
+\end{theorem}
+
+\begin{theorem}
+Let $\calM$ be an embedded submanifold of a Euclidean space $\calE$. 
+The connection $\Conn{}{}{}$ defined by \ref{def-conn-proj} is symmetric on $\calM$.
+\end{theorem}
+
+\begin{theorem}
+Let $M$ be a Riemannian submanifold of a Euclidean space. 
+The connection $\Conn{}{}{}$ defined by \ref{def-conn-proj} is the Riemannian connection on $\calM$.
+\end{theorem}
+
+\begin{proposition}
+Let $U,V$ be two smooth vector fields on a manifold $\calM$. 
+There exists a unique smooth vector field $W$ on $\calM$ such that $[U,V]f = Wf$ for all $f \in \SmFunc{M}$. 
+Therefore, we identify $[U,V]$ with that smooth vector field. 
+Explicitly, if $\Conn{}{}{}$ is any symmetric connection, then $[U,V ] = \Conn{}{U}{V} - \Conn{}{V}{U}$.
+\end{proposition}
+
+\section{Riemannian Hessians}
+\begin{definition}
+Let $\calM$ be a Riemannian manifold with its Riemannian con
+nection $\Conn{}{}{}$. The Riemannian Hessian of $f\in \SmFunc{M}$ at $x\in \calM$ is the linear map $\operatorname{Hess}f(x): \Tang{x}{M} \to \Tang{x}{M}$ defined as follows: 
+$$\operatorname{Hess}f(x)[u] = \grad{u}{\operatorname{grad} f}.$$
+Equivalently, $\operatorname{Hess}f$ maps $\VecF{M}$ to $\VecF{M}$ as $\operatorname{Hess}f[U] = \Conn{}{U}{\operatorname{grad} f}$. 
+\end{definition}
+
+\begin{proposition}
+The Riemannian Hessian is self-adjoint with respect to the
+ Riemannian metric. That is, for all $x\in \calM$ and $u, v\in \Tang{x}{M}$, $\langle\operatorname{Hess}f(x)[u], v\rangle_x = \langle u, \operatorname{Hess}f(x)[v]\rangle_x$.
+\end{proposition}
+
+\begin{corollary}
+Let $\calM$ be a Riemannian submanifold of a Euclidean space. 
+Consider a smooth function $f : \calM \to \bbR$. Let $\bar G$ be a smooth extension of $\operatorname{grad}f$—
+that is, $\bar G$ is any smooth vector field defined on a neighborhood of $\calM$ in the embedding space such that $\bar G(x) = \operatorname{grad}f(x)$ for all $x \in \calM$. 
+Then, $\operatorname{Hess}f(x)[u] = \Proj{x}{\operatorname{D}\bar G(x)[u]}$. 
+\end{corollary}
+
+\section{Connections as Pointwise Derivatives*}
+\begin{definition}
+A connection on a manifold $\calM$ is an operator
+$$\nabla \colon \VecF{M} \times \VecF{M} \to \VecF{M}: (U,V) \mapsto \Conn{}{U}{V}$$
+which has three properties for all $U ,V , W \in \VecF{M}$, $f, g \in \SmFunc{M}$ and $a, b \in \bbR$:
+\begin{enumerate}
+\item[1.] $\SmFunc{M}$-linearity in $U$: $\Conn{}{fU+gW}{V} = f\Conn{}{U}{V} + g\Conn{}{W}{V}$;
+\item[2.] $\bbR$-linearity in $V$: $\Conn{}{U}{(aV+bW)} = a\Conn{}{U}{V} + b\Conn{}{U}{W}$; and
+\item[3.] Leibniz rule: $\Conn{}{U}{(fV)} = (Uf)V + f \Conn{}{U}{V}$. 
+\end{enumerate}
+The field $\Conn{}{U}{V}$ is the covariant derivative of $V$ along $U$ with respect to $\Conn{}{}{}$. 
+\end{definition}
+
+\begin{proposition}
+For any connection $\Conn{}{}{}$ and smooth vector fields $U,V$ on a manifold $\calM$, the vector field $\Conn{}{U}{V}$ at $x$ depends on $U$ only through $U(x)$.
+\end{proposition}
+
+\begin{lemma}
+Given any real numbers $0 < r_1 < r_2$ and any point $x$ in a Euclidean space $\calE$ with norm $\|\cdot\|$, there exists a smooth function $b: \calE \to \bbR$ such that 
+\begin{itemize}
+\item $b(y) = 1$ if $\parallel y - x \parallel \leq r_1$; 
+\item $b(y) = 0$ if $\parallel y - x \parallel \geq r_2$; and 
+\item $b(y) \in (0,1)$ if $\parallel y - x \parallel \in (r_1, r_2)$. 
+\end{itemize}
+\end{lemma}
+
+\noindent Using bump functions, we can show that $(\nabla_UV)(x)$ depends on $U$ and $V$ only through their values in a neighborhood around $x$. This is the object of the two following lemmas.
+
+\begin{lemma}
+Let $V_1, V_2$ be smooth vector fields on a manifold $M$ equipped with a connection $\Conn{}{}{}$. If $V_1 \mid_\calU = V_2 \mid_\calU$ on some open set $\calU$ of $\calM$, then $(\Conn{}{U}{V_1})\mid_\calU = (\Conn{}{U}{V_2})\mid_\calU$ for all $U \in \mathfrak{X}(\calM)$.
+\end{lemma}
+
+\begin{lemma}
+Let $U_1, U_2$ be smooth vector fields on a manifold $\calM$ equipped with a connection $\Conn{}{}{}$. If $U_1\mid_\calU = U_2\mid_\calU$ on some open set $\calU$ of $\calM$, then $(\Conn{}{U_1}{V})\mid_\calU = (\Conn{}{U_2}{V})\mid_\calU$ for all $V \in \VecF{M}$.
+\end{lemma}
+
+\begin{lemma}
+Let $U$ be a neighborhood of a point $x$ on a manifold $\calM$. 
+Given a smooth function $f\in \SmFunc{U}$, there exists a smooth function $g\in \SmFunc{M}$ and a neighborhood $\calU' \subseteq \calU$ of $x$ such that $g\mid \calU' = f\mid\calU'$. 
+\end{lemma}
+
+\begin{lemma}
+Let $U$ be a neighborhood of a point $x$ on a manifold $\calM$. 
+Given a smooth vector field $U \in \VecF{U}$, there exists a smooth vector field $V \in \VecF{M}$ and a neighborhood $\calU' \subseteq \calU$ of $x$ 
+such that $V\mid_{\calU'} = U\mid_{\calU'}$.
+\end{lemma}
+
+\begin{lemma}
+Let $ U, V $ be two smooth vector fields on a manifold $\mathcal{M} $ equipped with a connection $ \nabla $. Further let $ \mathcal{U} $ be a neighborhood of $ x \in \mathcal{M}$ such that $ U|_{\mathcal{u}} = g_1W_1 + \cdots + g_n W_n $ for some $ g_1, \dots, g_n \in \mathfrak{F}(\mathcal{U}) $ and $ W_1, \dots, W_n \in \mathfrak{X}(\upsilon) $. 
+Then,
+$$(\nabla_U V)(x) = g_1(x)(\nabla_{W_1}V)(x) + \cdots + g_n(x)(\nabla_{W_n}V)(x),$$
+where each vector $ (\nabla_{W_i}V)(x) $ is understood to mean $ (\nabla_{\widetilde{W}_i}V)(x) $ with $ \widetilde{W}_i $ any smooth extension of $ W_i $ to $ \mathcal{M} $ around $ x $.
+\end{lemma}
+
+\section{Differentiating Vector Fields on Curves}
+\begin{definition}
+Let $c : I \to \calM$ be a smooth curve on $\calM$ defined on an open interval $I$. 
+A map $Z : I \to \Tang{}{M}$ is a vector field on $c$ if $Z(t)$ is in $\Tang{c(t)}{M}$ for all $t \in I$. 
+Moreover, $Z$ is a smooth vector field on $c$ if it is also smooth as a map from $I$ to $\Tang{}{M}$. 
+The set of smooth vector fields on c is denoted by $X(c)$. 
+\end{definition}
+
+\begin{theorem}\label{thm-induced-cov-deri}
+Let $ c \colon I \to M $ be a smooth curve on a manifold equipped with a connection $\nabla$. There exists a unique operator $\frac{D}{dt} \colon \mathfrak{X}(c) \to \mathfrak{X}(c)$ which satisfies the following properties for all $ Y, Z \in \mathfrak{X}(c) $, $ U \in \mathfrak{X}(\calM) $, $ g \in \mathfrak{F}(I) $, and $ a, b \in \mathbb{R} $:
+
+\begin{enumerate}
+    \item \textit{$\mathbb{R}$-linearity}: $\frac{D}{dt}(aY + bZ) = a\frac{D}{dt}Y + b\frac{D}{dt}Z$;
+    \item \textit{Leibniz rule}: $\frac{D}{dt}(gZ) = \frac{dg}{dt}Z + g\frac{D}{dt}Z$;
+    \item \textit{Chain rule}: $\left(\frac{D}{dt}(U \circ c)\right)(t) = \nabla_{c'(t)}U$ for all $t \in I$;
+    \item \textit{Product rule}: If $M$ is a Riemannian manifold and $\nabla$ is compatible with its metric (e.g., the Levi-Civita connection), then additionally:
+    $$
+    \frac{d}{dt}\langle Y, Z \rangle = \left\langle \frac{D}{dt}Y, Z \right\rangle + \left\langle Y, \frac{D}{dt}Z \right\rangle
+    $$
+    where the inner product $\langle \cdot, \cdot \rangle$ along $c$ is defined by $\langle Y, Z \rangle(t) = \langle Y(t), Z(t) \rangle_{c(t)}$.
+\end{enumerate}
+
+We call $\frac{D}{dt}$ the \textit{induced covariant derivative} (induced by $\nabla$). 
+\end{theorem}
+
+\begin{proposition}
+Let $\calM$ be an embedded submanifold of a Euclidean space $\calE$ with connection $\Conn{}{}{}$ as in \ref{def-conn-proj}. The operator $\frac{D}{dt}$ defined by $$\frac{D}{dt} Z(t) = \Proj{c(t)}{\deri{}{t} Z(t)} \label{def-induced-cov-deri}$$ is the induced
+covariant derivative, that is, it satisfies properties 1–3 in Theorem \ref{thm-induced-cov-deri}. If $\calM$ is a Riemannian submanifold of $\calE$, then $\frac{D}{dt}$ also satisfies property 4 in that same theorem.
+\end{proposition}
+
+\section{Acceleration and Geodesics}
+\begin{definition}
+Let $c : I \to \calM$ be a smooth curve. 
+Its velocity is the vector field $c' \in \mathfrak{X}(c)$. 
+The acceleration of $c$ is the smooth vector field $c'' \in \mathfrak{X}(c)$ defined by $c'' = \frac{D}{dt} c'$. 
+We also call $c''$ the intrinsic acceleration of $c$. 
+\end{definition}
+
+\begin{definition}
+On a Riemannian manifold $\calM$, a geodesic is a smooth curve
+$c : I \to \calM$ such that $c''(t) = 0$ for all $t \in I$, where $I$ is an open interval of $\bbR$.
+\end{definition}
+
+
+\section{A Second-order Taylor Expansion on Curves}
+
+\begin{lemma}
+Let $c(t)$ be a geodesic connecting $x = c(0)$ to $y = c(1)$, and
+assume $\operatorname{Hess}f(c(t)) \succeq \mu I$ for some $\mu\in \bbR$ and all $t\in [0,1]$. Then, $f(y) \ge f(x) + \langle \operatorname{grad}f(x), v\rangle_x + \frac{\mu}{2} \|v\|_x^2$.
+\end{lemma}
+
+\section{Second-order Retractions}
+\begin{definition}
+A second-order retraction $R$ on a Riemannian manifold $\calM$ is
+a retraction such that, for all $x\in \calM$ and all $v \in \Tang{x}{M}$, the curve $c(t) = R_x(tv)$ has zero acceleration at $t = 0$, that is, $c''(0) = 0$.
+\end{definition}
+
+\begin{proposition}
+Consider a Riemannian manifold $ M $ equipped with any re\-traction $ R $, and a smooth function $ f: M \to \mathbb{R} $. If $ x $ is a critical point of $ f $ (that is, if $ \mathrm{grad}f(x) = 0 $), then
+$$f(R_x(s)) = f(x) + \frac{1}{2} \langle \mathrm{Hess}f(x)[s], s \rangle_x + O(\|s\|_x^3).$$
+Also, if $ R $ is a second-order retraction, then for all points $ x \in M $ we have
+$$f(R_x(s)) = f(x) + \langle \mathrm{grad}f(x), s \rangle_x + \frac{1}{2} \langle \mathrm{Hess}f(x)[s], s \rangle_x + O(\|s\|_x^3).$$
+\end{proposition}
+
+\begin{proposition}
+If the retraction is second order or if $\operatorname{grad}f(x) = 0$, then 
+$$\operatorname{Hess}f(x) = \operatorname{Hess}(f \circ R_x)(0),$$ 
+where the right-hand side is the Hessian of $f \circ R_x : \Tang{x}{M} \to \bbR$ at $0 \in \Tang{x}{M}$. The latter is a “classical” Hessian since $\Tang{x}{M}$ is a Euclidean space. 
+\end{proposition}
+
+\section{Riemannian Submanifolds*}
+\section{Metric Projection Retractions*}
+
+\end{document}

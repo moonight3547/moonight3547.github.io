@@ -8,12 +8,12 @@
         <language>en</language>
         <copyright>MooNight Xu</copyright>
         <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/punching-hole/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Punching Hole Technique</title>
-        <link>http://localhost:1313/p/punching-hole-technique/</link>
+        <title>Linear Algebra - Punching Hole Technique on Matrices</title>
+        <link>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/punching-hole-technique/</guid>
-        <description>&lt;img src="http://localhost:1313/p/punching-hole-technique/SMW-slide.jpg" alt="Featured image of post Punching Hole Technique" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
+        <guid>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</guid>
+        <description>&lt;img src="http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/SMW-slide.jpg" alt="Featured image of post Linear Algebra - Punching Hole Technique on Matrices" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
 &lt;/h2&gt;&lt;p&gt;In the tutorial of MAT2041A Linear Algebra and Applications, I constructed a proof of the Sherman-Morrison-Woodbury Formula to demonstrate the potential of block matrices.&lt;/p&gt;
 &lt;h3 id=&#34;sherman-morrison-woodbury-formula&#34;&gt;Sherman-Morrison-Woodbury Formula
 &lt;/h3&gt;&lt;blockquote&gt;
@@ -52,19 +52,20 @@ $$\small\begin{aligned} &amp;\begin{bmatrix} \textbf{A} + \textbf{U}\textbf{C}\t
 =&amp; \begin{bmatrix} \textbf{I}_p &amp; -\textbf{U} \\\\ ? &amp; ? \end{bmatrix} 
 \begin{bmatrix} \textbf{I}_p &amp; \textbf{U} \\\\\textbf{O} &amp; \textbf{I}_q\end{bmatrix}
 = \begin{bmatrix} \textbf{I}_p &amp; \textbf{O} \\\\? &amp; ?\end{bmatrix} \\\\
-\Rightarrow &amp; (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$&lt;h2 id=&#34;punching-hole-technique&#34;&gt;Punching Hole Technique
+\Rightarrow &amp; (\textbf{A}+\textbf{U}\textbf{C}\textbf{V})f(\textbf{A},\textbf{C},\textbf{U},\textbf{V}) = \textbf{I}_p \end{aligned}$$&lt;h2 id=&#34;idea-punching-hole-technique&#34;&gt;Idea: Punching Hole Technique
 &lt;/h2&gt;&lt;p&gt;The &amp;ldquo;observed&amp;rdquo; block matrix multiplication actually creates identity matrices and zero matrices as sub-matrices.
 The related technique introduced by Hua Loo-Keng is called &amp;ldquo;Punching Hole&amp;rdquo; Principle (打洞原理 in Chinese) where the zero matrices are the holes in block matrices.&lt;/p&gt;
 &lt;h3 id=&#34;rank-of-block-matrices&#34;&gt;Rank of Block Matrices
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Guttman rank additivity formula:&lt;/strong&gt;
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Guttman rank additivity formula:&lt;/strong&gt;
 If a block matrix $\mathbf{P}$ of $2\times 2$ sub-matrices with left-top sub-matrix $\mathbf{A}$ nonsingular, then&lt;/p&gt;
 $$\small\begin{aligned}
-\text{rank}(\mathbf{P}) = \text{rank}(\begin{bmatrix}
-\mathbf{A} &amp; \mathbf{B} \\\\
-\mathbf{C} &amp; \mathbf{D}
-\end{bmatrix}) = \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
-\end{aligned}$$&lt;p&gt;
-where $\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B}$ is $\mathbf{A}$&amp;rsquo;s Schur Complement, written as $\mathbf{P} / \mathbf{A}$.&lt;/p&gt;
+&gt;\text{rank}(\mathbf{P}) = \text{rank}(\begin{bmatrix}
+&gt;\mathbf{A} &amp; \mathbf{B} \\\\
+&gt;\mathbf{C} &amp; \mathbf{D}
+&gt;\end{bmatrix}) = \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
+&gt;\end{aligned}$$&lt;p&gt;
+where $\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B}$ is $\mathbf{A}$&amp;rsquo;s Schur Complement, written as $\mathbf{P} / \mathbf{A}$.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt;&lt;/p&gt;
 $$\small\begin{aligned}
 \text{rank}(\begin{bmatrix} \mathbf{A} &amp; \mathbf{B} \\\\ \mathbf{C} &amp; \mathbf{D} \end{bmatrix}) 
@@ -76,22 +77,27 @@ $$\small\begin{aligned}
 &amp;= \text{rank}(\begin{bmatrix} \mathbf{A} &amp; \mathbf{O} \\\\ \mathbf{O} &amp; \mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B} \end{bmatrix})
 = \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B})
 \end{aligned}$$&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
-&lt;h2 id=&#34;extension-block-matrix-rank-inequality&#34;&gt;Extension: Block Matrix Rank Inequality
-&lt;/h2&gt;&lt;h3 id=&#34;sylvester-inequality&#34;&gt;Sylvester Inequality
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Sylvester Inequality:&lt;/strong&gt; For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}$, then&lt;/p&gt;
-$$\text{rank}(\mathbf{AB}) \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt; By Guttman rank additivity formula with $\mathbf{A} = \mathbf{I}_n$, then&lt;/p&gt;
+&lt;h3 id=&#34;determinant-of-block-matrices&#34;&gt;Determinant of Block Matrices
+&lt;/h3&gt;&lt;h2 id=&#34;extension-block-matrix-rank-inequality&#34;&gt;Extension: Block Matrix Rank Inequality
+&lt;/h2&gt;&lt;p&gt;Using the &lt;strong&gt;Punching Hole Technique&lt;/strong&gt; above, we can derive the following rank inequalities.&lt;/p&gt;
+&lt;h3 id=&#34;sylvester-inequality&#34;&gt;Sylvester Inequality
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Sylvester Inequality:&lt;/strong&gt; For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}$, then&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt; By Guttman rank additivity formula with $\mathbf{A} = \mathbf{I}_n$, then&lt;/p&gt;
 $$\small \begin{aligned}\text{rank}(\begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix})
  &amp;= \text{rank}(\begin{bmatrix} \mathbf{I}_{n} &amp; \mathbf{O} \\\\ -\mathbf{A} &amp; \mathbf{I}_{m}\end{bmatrix}
  \begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix}
  \begin{bmatrix} \mathbf{I}_{n} &amp; -\mathbf{B} \\\\ \mathbf{O} &amp; \mathbf{I}_{k}\end{bmatrix}) \\\\
  &amp;= \text{rank}(\begin{bmatrix} \mathbf{I} &amp; \mathbf{O}_{n\times k} \\\\ \mathbf{O}_{m\times n} &amp; -\mathbf{AB} \end{bmatrix}) 
- = \text{rank}(\mathbf{B}) + \text{rank}(\mathbf{AB}) = n + \text{rank}(\mathbf{AB})
+ = \text{rank}(\mathbf{I}_n) + \text{rank}(\mathbf{AB}) = n + \text{rank}(\mathbf{AB})
  \end{aligned}$$&lt;p&gt;Therefore,&lt;/p&gt;
-$$\text{rank}(\mathbf{AB}) = \text{rank}(\begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix}) - n \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$&lt;p&gt;.&lt;/p&gt;
-&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) = \text{rank}(\begin{bmatrix} \mathbf{I}_n &amp; \mathbf{B} \\\\ \mathbf{A} &amp; \mathbf{O}_{m\times k}\end{bmatrix}) - n \ge \text{rank}(\mathbf{A}) + \text{rank}(\mathbf{B}) - n$$&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;
 &lt;h3 id=&#34;frobenius-inequality&#34;&gt;Frobenius Inequality
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Frobenius Inequality:&lt;/strong&gt; For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}, \mathbf{C} \in \mathbb{R}^{k\times l}$, then&lt;/p&gt;
-$$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC}) \le \text{rank}(\mathbf{ABC}) + \text{rank}(\mathbf{B})$$&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt; Similar with Guttman rank additivity formula (but note that we don&amp;rsquo;t have inverse matrix of $\mathbf{A}$),&lt;/p&gt;
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Frobenius Inequality:&lt;/strong&gt; For any matrices $\mathbf{A} \in \mathbb{R}^{m\times n}, \mathbf{B} \in \mathbb{R}^{n\times k}, \mathbf{C} \in \mathbb{R}^{k\times l}$, then&lt;/p&gt;
+$$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC}) \le \text{rank}(\mathbf{ABC}) + \text{rank}(\mathbf{B})$$&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof:&lt;/strong&gt; Similar with Guttman rank additivity formula (but note that we don&amp;rsquo;t have inverse matrix of $\mathbf{A}$),&lt;/p&gt;
 $$\small \begin{aligned}\text{rank}(\begin{bmatrix} \mathbf{B} &amp; \mathbf{BC} \\\\ \mathbf{AB} &amp; \mathbf{O}_{m\times l}\end{bmatrix})
  &amp;= \text{rank}(\begin{bmatrix} \mathbf{I}_{n} &amp; \mathbf{O} \\\\ -\mathbf{A} &amp; \mathbf{I}_{m}\end{bmatrix}\begin{bmatrix} \mathbf{B} &amp; \mathbf{BC} \\\\ \mathbf{AB} &amp; \mathbf{O}_{m\times l}\end{bmatrix}
  \begin{bmatrix} \mathbf{I}_{k} &amp; -\mathbf{C} \\\\ \mathbf{O} &amp; \mathbf{I}_{l}\end{bmatrix}) 

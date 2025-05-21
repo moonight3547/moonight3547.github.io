@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Second-Order Geometry (Connections, Hessians, Retractions) for Second-Order Methods in Manifold Optimization">
+<title>Manifold Optimization - Second-Order Geometry: Connections and Hessians</title>
+
+<link rel='canonical' href='http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Manifold Optimization - Second-Order Geometry: Connections and Hessians">
+<meta property='og:description' content="Second-Order Geometry (Connections, Hessians, Retractions) for Second-Order Methods in Manifold Optimization">
+<meta property='og:url' content='http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/'>
+<meta property='og:site_name' content='MooNight Xu&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='optimization' /><meta property='article:tag' content='manifold' /><meta property='article:tag' content='second-order' /><meta property='article:tag' content='geometry' /><meta property='article:published_time' content='2025-05-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-05-21T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction.png' />
+<meta name="twitter:title" content="Manifold Optimization - Second-Order Geometry: Connections and Hessians">
+<meta name="twitter:description" content="Second-Order Geometry (Connections, Hessians, Retractions) for Second-Order Methods in Manifold Optimization"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_d2b4e7a964e339d3.jpg" width="300"
+                            height="177" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MooNight Xu&#39;s Blog</a></h1>
+            <h2 class="site-description">Blog Description</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MooNight3547'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#differentiating-vector-fields-on-manifolds-connections">Differentiating Vector Fields on Manifolds: Connections</a></li>
+    <li><a href="#riemannian-connections">Riemannian Connections</a></li>
+    <li><a href="#riemannian-hessians">Riemannian Hessians</a></li>
+    <li><a href="#connections-as-pointwise-derivatives">Connections as Pointwise Derivatives*</a></li>
+    <li><a href="#differentiating-vector-fields-on-curves">Differentiating Vector Fields on Curves</a></li>
+    <li><a href="#acceleration-and-geodesics">Acceleration and Geodesics</a></li>
+    <li><a href="#a-second-order-taylor-expansion-on-curves">A Second-order Taylor Expansion on Curves</a></li>
+    <li><a href="#second-order-retractions">Second-order Retractions</a></li>
+    <li><a href="#riemannian-submanifolds">Riemannian Submanifolds*</a></li>
+    <li><a href="#metric-projection-retractions">Metric Projection Retractions*</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/manifold-optimization-second-order-geometry-connections-and-hessians/">
+                <img src="/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_eb7ddd97ad295c2c.png"
+                        srcset="/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_eb7ddd97ad295c2c.png 800w, /p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_2768812fca72428a.png 1600w"
+                        width="800" 
+                        height="509" 
+                        loading="lazy"
+                        alt="Featured image of post Manifold Optimization - Second-Order Geometry: Connections and Hessians" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/manifold-optimization/" >
+                Manifold Optimization
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/manifold-optimization-second-order-geometry-connections-and-hessians/">Manifold Optimization - Second-Order Geometry: Connections and Hessians</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Second-Order Geometry (Connections, Hessians, Retractions) for Second-Order Methods in Manifold Optimization
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 21, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    10 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="differentiating-vector-fields-on-manifolds-connections">Differentiating Vector Fields on Manifolds: Connections
+</h2><p>Notion of derivative for vector fields on manifolds is called a <em>connection</em> , traditionally denoted by $\nabla$ (&quot;nabla&quot;).
+Given a tangent vector $u \in T_x\mathcal{M}$ and a vector field $V$, $\nabla_uV$ is the derivative of $V$ at $x$ along $u$.
+Formally, we should write $\nabla_{(x,u)} V$ where the base point $x$ is typically clear from context.<br>
+<strong>Note that we do not need a Riemannian metric yet.</strong></p>
+<p><strong>Definition 1</strong>. A <em>connection</em> on a manifold $M$ is an operator
+</p>
+$$\nabla \colon \operatorname{T}_{}{\mathcal{M}} \times \mathfrak{X}(\mathcal{M}) \to \operatorname{T}_{}{\mathcal{M}}: (u, V) \mapsto \nabla_u V$$<p>
+where:</p>
+<ul>
+<li>
+<p>$\operatorname{T}_{}{\mathcal{M}}$ is the tangent vector space</p>
+</li>
+<li>
+<p>$\mathfrak{X}(\mathcal{M})$ denotes smooth vector fields on
+$\mathcal{M}$</p>
+</li>
+</ul>
+<p>This operator must satisfy four properties for all
+$u,w \in \operatorname{T}_{}{\mathcal{M}}$,
+$U,V,W \in \mathfrak{X}(\mathcal{M})$, $a,b \in \mathbb{R}$, and
+$f \in C^\infty(\mathcal{M})$:</p>
+<ol>
+<li>
+<p><em>Smoothness</em>: $(\nabla_UV)(x) \stackrel{\Delta}{=}\nabla_{U(x)}V$
+defines a smooth vector field $\nabla_UV$;</p>
+</li>
+<li>
+<p><em>Linearity in $u$</em>: $\nabla_{au + bw}V = a\nabla_uV + b\nabla_wV$;</p>
+</li>
+<li>
+<p><em>Linearity in $V$</em>: $\nabla_u(aV + bW) = a\nabla_uV + b\nabla_uW$;</p>
+</li>
+<li>
+<p><em>Leibniz rule</em>:
+$\nabla_u(fV) = \operatorname{D}{f}(x)[u]\cdot V(x) + f(x)\nabla_{u}{V}$.</p>
+</li>
+</ol>
+<p>The field $\nabla_U V$ is called the <em>covariant derivative</em> of $V$ along
+$U$ with respect to $\nabla$.</p>
+<p><strong>Theorem 2</strong>. <em>Let $\mathcal{M}$ be an embedded submanifold of a
+Euclidean space $\mathcal{E}$. The operator $\nabla$ defined by</em> <a id="def-conn-proj"></a>
+</p>
+$$\nabla_{u}{V} = \operatorname{Proj}_{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)} \tag{Eq. 1}$$<p>
+<em>is a connection on $\mathcal{M}$, where $\operatorname{Proj}_{x}$ is the projector from $\mathcal{E}$ to the tangent vector space $\operatorname{T} _x(\mathcal{M})$.</em></p>
+<blockquote>
+<p><strong>Proof.</strong>
+Let $\mathcal{M}$ be an embedded submanifold of a Euclidean space $\mathcal{E}$ by $\bar \nabla$. Then
+</p>
+$$\nabla_u V = \operatorname{Proj}_{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)} = \operatorname{Proj}_{x} {\left(\bar\nabla_{u}{\bar V}\right)}.$$<p>
+Projection is a linear operation which maintains the properties (linearities of $u, V$) of connections $\nabla_u V$, hence $\operatorname{Proj}_{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)}$ is a connection on $\mathcal{M}$.</p>
+<p>Details:</p>
+<ul>
+<li>If $M$ is a submanifold of $\mathcal{E}$, the claim is clear since $\operatorname{Proj}_x$ is identity and we can take $\bar V = V$.</li>
+<li>Suppose $M$ is a manifold not open in $\mathcal{E}$. Consider $U,V,W \in \mathfrak{X}(\mathcal{M})$ together with smooth extensions $\bar U, \bar V, \bar W \in \mathfrak{X}(O)$ defined on a neighborhood $O$ of $\mathcal{M}$. $\bar \nabla$ is a connection on $O$ since $O$ is an open submanifold of $E$. Consider $a, b \in \mathbb{R}$ and $u, w\in \operatorname{T} _x \mathcal{M}$. Then,</li>
+</ul>
+<ol>
+<li>Since projection is a linear operation, $\nabla _u V = \operatorname{Proj} _{x} {\left(\bar\nabla _{u}{\bar V}\right)}$ is a smooth vector field;</li>
+<li>$$\begin{aligned}\nabla _{au+bw} V &= \operatorname{Proj}_x (\bar \nabla _{au+bw} \bar V) \\ &= \operatorname{Proj}_x (a\bar \nabla _{u} \bar V + b \bar \nabla _{w} \bar V) \\ &= a \nabla _{u} V + b \nabla _{w} V \end{aligned}$$</li>
+<li>$$\begin{aligned}\nabla _{u} (aV+bW) &= \operatorname{Proj}_x \left(\bar \nabla _{u} (a\bar V+b\bar W)\right) \\ &= \operatorname{Proj}_x (a\bar \nabla _{u} \bar V + b \bar \nabla _{u} \bar W) \\ &= a \nabla _{u} V + b \nabla _{u} W \end{aligned}$$</li>
+<li>To verify the Leibniz rule, consider an arbitrary $f\in \mathfrak{F}(\mathcal{M})$ and smooth extension $\bar f \in \mathfrak{F}(O)$.
+$$\begin{aligned}\nabla _{u} (fV) &= \operatorname{Proj}_x (\bar \nabla _{u} \bar f \bar V) \\ &= \operatorname{Proj}_x (\operatorname{D} \bar f (x) [u] \cdot \bar V(x) + \bar f(x) \bar \nabla _{u} \bar V) \\ &= \operatorname{D} f (x) [u] \cdot V(x) + f(x) \nabla _{u} V \end{aligned}$$
+Hence, $\nabla _{U} V$ with $\nabla _{u} V= \operatorname{Proj} _{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)}$ is a connection on $\mathcal{M}$.</li>
+</ol>
+<p style="text-align: right;">$\square$</p></blockquote>
+<p><strong>Proposition 3</strong>. <em>Let $\mathcal{M}$ be a maniflod with arbitrary
+connection $\nabla$. Given a smooth vector field
+$V \in \mathfrak{X}(\mathcal{M})$ and a point $x \in \mathcal{M}$, if
+$V(x) = 0$ then $\nabla_u V=\operatorname{D}{V}(x)[u]$ for all
+$u\in \operatorname{T}_{x}{\mathcal{M}}$. In particular,
+$\operatorname{D}{V}(x)[u]$ is tangent at $x$.</em></p>
+<h2 id="riemannian-connections">Riemannian Connections
+</h2><p><strong>Definition 4</strong>. For $U, V \in \mathfrak{X}(\mathcal{M})$ and
+$f \in \mathfrak{F}(\mathcal{U})$ with $\mathcal{U}$ open in
+$\mathcal{M}$, define:</p>
+<ul>
+<li>
+<p>$Uf \in \mathfrak{F}(\mathcal{U})$ such that
+$(Uf)(x) = \operatorname{D}{f(}(x)[U(x)]$;</p>
+</li>
+<li>
+<p>$[U, V]: \mathfrak{F}(\mathcal{U})\to \mathfrak{F}(\mathcal{U})$ such
+that $[U,V]f = U(Vf) - V(Uf)$;</p>
+</li>
+<li>
+<p>$\langle U, V\rangle \in \mathfrak{F}(\mathcal{M})$ such that
+$\langle U, V\rangle(x) = \langle U(x), V(x)\rangle_x$.</p>
+</li>
+</ul>
+<p>The notation $Uf$ captures the action of a smooth vector field $U$ on a smooth function $f$ through derivation, transforming $f$ into another smooth function.
+The commutator $[U,V]$ of such action is called the Lie bracket.
+Even in linear spaces $[U, V ]f$ is nonzero in general.
+Notice that $Uf = \langle \operatorname{grad}f, U\rangle$ owing to the
+definitions of $Uf, \langle V, U\rangle$ and $\operatorname{grad} f$.</p>
+<p><strong>Theorem 5</strong>. <em>On a Riemannian manifold $\mathcal{M}$, there exists a
+unique connection $\nabla$ which satisfies two additional properties for
+all $U,V,W \in \mathfrak{X}(\mathcal{M})$:</em></p>
+<ol>
+<li>
+<p><em>Symmetry: $[U, V] f = (\nabla_{U}{V} -\nabla_{V}{U}) f$ for all
+$f \in \mathfrak{F}(\mathcal{M})$;</em></p>
+</li>
+<li>
+<p><em>Compatibility with the metric:
+$U\langle V,W\rangle = \langle\nabla_{U}{V},W\rangle+\langle V,\nabla_{U}{W}\rangle$.</em></p>
+</li>
+</ol>
+<p><em>This connection is called the Levi-Civita or Riemannian connection.</em></p>
+<p><strong>Theorem 6</strong>. <em>The Riemannian connection on a Euclidean space
+$\mathcal{E}$ with any Euclidean metric $\langle \cdot, \cdot \rangle$
+is $\nabla_{u}{V} = \operatorname{D}{V}(x)[u]$: the canonical Euclidean
+connection.</em></p>
+<p><strong>Theorem 7</strong>. <em>Let $\mathcal{M}$ be an embedded submanifold of a
+Euclidean space $\mathcal{E}$. The connection $\nabla_{}{}$ defined by
+<a class="link" href="#def-conn-proj" >Eq. 1</a> is symmetric on $\mathcal{M}$.</em></p>
+<p><strong>Theorem 8</strong>. <em>Let $M$ be a Riemannian submanifold of a Euclidean
+space. The connection $\nabla_{}{}$ defined by
+<a class="link" href="#def-conn-proj" >Eq. 1</a> is the Riemannian connection on
+$\mathcal{M}$.</em></p>
+<p><strong>Proposition 9</strong>. <em>Let $U,V$ be two smooth vector fields on a manifold
+$\mathcal{M}$. There exists a unique smooth vector field $W$ on
+$\mathcal{M}$ such that $[U,V]f = Wf$ for all
+$f \in \mathfrak{F}(\mathcal{M})$. Therefore, we identify $[U,V]$ with
+that smooth vector field. Explicitly, if $\nabla_{}{}$ is any symmetric
+connection, then $[U,V ] = \nabla_{U}{V} - \nabla_{V}{U}$.</em></p>
+<h2 id="riemannian-hessians">Riemannian Hessians
+</h2><p><strong>Definition 10</strong>. Let $\mathcal{M}$ be a Riemannian manifold with its
+Riemannian con nection $\nabla_{}{}$. The Riemannian Hessian of
+$f\in \mathfrak{F}(\mathcal{M})$ at $x\in \mathcal{M}$ is the linear map
+$\operatorname{Hess} f(x): \operatorname{T} _{x}{\mathcal{M}} \to \operatorname{T} _{x}{\mathcal{M}}$ defined as follows:
+</p>
+$$\operatorname{Hess}f(x)[u] = \nabla_{u}{\operatorname{grad} f}.$$<p>Equivalently, $\operatorname{Hess}f$ maps $\mathfrak{X}(\mathcal{M})$ to
+$\mathfrak{X}(\mathcal{M})$ as
+$\operatorname{Hess}f[U] = \nabla_{U}{\operatorname{grad} f}$.</p>
+<p><strong>Proposition 11</strong>. <em>The Riemannian Hessian is self-adjoint with respect
+to the Riemannian metric. That is, for all $x\in \mathcal{M}$ and
+$u, v\in \operatorname{T} _{x}{\mathcal{M}}$,
+$\langle \operatorname{Hess} f(x)[u], v\rangle _x = \langle u, \operatorname{Hess}f(x)[v]\rangle _x$.</em></p>
+<p><strong>Corollary 12</strong>. <em>Let $\mathcal{M}$ be a Riemannian submanifold of a
+Euclidean space. Consider a smooth function
+$f : \mathcal{M}\to \mathbb{R}$. Let $\bar G$ be a smooth extension of
+$\operatorname{grad}f$&mdash; that is, $\bar G$ is any smooth vector field
+defined on a neighborhood of $\mathcal{M}$ in the embedding space such
+that $\bar G(x) = \operatorname{grad}f(x)$ for all $x \in \mathcal{M}$.
+Then,
+$\operatorname{Hess}f(x)[u] = \operatorname{Proj}_{x}{\left(\operatorname{D}\bar G(x)[u]\right)}$.</em></p>
+<h2 id="connections-as-pointwise-derivatives">Connections as Pointwise Derivatives*
+</h2><p><strong>Definition 13</strong>. A connection on a manifold $\mathcal{M}$ is an
+operator
+</p>
+$$\nabla \colon \mathfrak{X}(\mathcal{M}) \times \mathfrak{X}(\mathcal{M}) \to \mathfrak{X}(\mathcal{M}): (U,V) \mapsto \nabla_{U}{V}$$<p>
+which has three properties for all
+$U ,V , W \in \mathfrak{X}(\mathcal{M})$,
+$f, g \in \mathfrak{F}(\mathcal{M})$ and $a, b \in \mathbb{R}$:</p>
+<ol>
+<li>
+<p>$\mathfrak{F}(\mathcal{M})$-linearity in $U$:
+$\nabla_{fU+gW}{V} = f\nabla_{U}{V} + g\nabla_{W}{V}$;</p>
+</li>
+<li>
+<p>$\mathbb{R}$-linearity in $V$:
+$\nabla_{U}{(aV+bW)} = a\nabla_{U}{V} + b\nabla_{U}{W}$; and</p>
+</li>
+<li>
+<p>Leibniz rule: $\nabla_{U}{(fV)} = (Uf)V + f \nabla_{U}{V}$.</p>
+</li>
+</ol>
+<p>The field $\nabla_{U}{V}$ is the covariant derivative of $V$ along $U$
+with respect to $\nabla_{}{}$.</p>
+<p><strong>Proposition 14</strong>. <em>For any connection $\nabla_{}{}$ and smooth vector
+fields $U,V$ on a manifold $\mathcal{M}$, the vector field
+$\nabla_{U}{V}$ at $x$ depends on $U$ only through $U(x)$.</em></p>
+<p><strong>Lemma 15</strong>. <em>Given any real numbers $0 &lt; r_1 &lt; r_2$ and any point $x$
+in a Euclidean space $\mathcal{E}$ with norm $\parallel \cdot \parallel$, there exists a
+smooth function $b: \mathcal{E}\to \mathbb{R}$ such that</em></p>
+<ul>
+<li>
+<p><em>$b(y) = 1$ if $\parallel y - x \parallel \leq r_1$;</em></p>
+</li>
+<li>
+<p><em>$b(y) = 0$ if $\parallel y - x \parallel \geq r_2$; and</em></p>
+</li>
+<li>
+<p><em>$b(y) \in (0,1)$ if $\parallel y - x \parallel \in (r_1, r_2)$.</em></p>
+</li>
+</ul>
+<p>Using bump functions, we can show that $(\nabla_UV)(x)$ depends on $U$
+and $V$ only through their values in a neighborhood around $x$. This is
+the object of the two following lemmas.</p>
+<p><strong>Lemma 16</strong>. <em>Let $V_1, V_2$ be smooth vector fields on a manifold $M$
+equipped with a connection $\nabla_{}{}$. If
+$V_1 \mid_\mathcal{U}= V_2 \mid_\mathcal{U}$ on some open set
+$\mathcal{U}$ of $\mathcal{M}$, then
+$(\nabla_{U}{V_1})\mid_\mathcal{U}= (\nabla_{U}{V_2})\mid_\mathcal{U}$
+for all $U \in \mathfrak{X}(\mathcal{M})$.</em></p>
+<p><strong>Lemma 17</strong>. <em>Let $U_1, U_2$ be smooth vector fields on a manifold
+$\mathcal{M}$ equipped with a connection $\nabla_{}{}$. If
+$U_1\mid_\mathcal{U}= U_2\mid_\mathcal{U}$ on some open set
+$\mathcal{U}$ of $\mathcal{M}$, then
+$(\nabla_{U_1}{V})\mid_\mathcal{U}= (\nabla_{U_2}{V})\mid_\mathcal{U}$
+for all $V \in \mathfrak{X}(\mathcal{M})$.</em></p>
+<p><strong>Lemma 18</strong>. <em>Let $U$ be a neighborhood of a point $x$ on a manifold
+$\mathcal{M}$. Given a smooth function $f\in \mathfrak{F}(\mathcal{U})$,
+there exists a smooth function $g\in \mathfrak{F}(\mathcal{M})$ and a
+neighborhood $\mathcal{U}&rsquo; \subseteq \mathcal{U}$ of $x$ such that
+$g\mid \mathcal{U}&rsquo; = f\mid\mathcal{U}&rsquo;$.</em></p>
+<p><strong>Lemma 19</strong>. <em>Let $U$ be a neighborhood of a point $x$ on a manifold
+$\mathcal{M}$. Given a smooth vector field
+$U \in \mathfrak{X}(\mathcal{U})$, there exists a smooth vector field
+$V \in \mathfrak{X}(\mathcal{M})$ and a neighborhood
+$\mathcal{U}&rsquo; \subseteq \mathcal{U}$ of $x$ such that
+$V\mid_{\mathcal{U}&rsquo;} = U\mid_{\mathcal{U}&rsquo;}$.</em></p>
+<p><strong>Lemma 20</strong>. <em>Let $U, V$ be two smooth vector fields on a manifold
+$\mathcal{M}$ equipped with a connection $\nabla$.
+Further let $\mathcal{U}$ be a neighborhood of $x \in \mathcal{M}$ such that $U| _{\mathcal{u}} = g_1W_1 + \cdots + g_n W_n$ for some
+$g_1, \dots, g_n \in \mathfrak{F}(\mathcal{U})$ and $W_1, \dots, W_n \in \mathfrak{X}(\upsilon)$.
+Then,</em>
+</p>
+$$(\nabla_U V)(x) = g_1(x)(\nabla_{W_1}V)(x) + \cdots + g_n(x)(\nabla_{W_n}V)(x),$$<p>
+<em>where each vector $(\nabla_{W_i}V)(x)$ is understood to mean
+$(\nabla_{\widetilde{W}_i}V)(x)$ with $\widetilde{W}_i$ any smooth
+extension of $W_i$ to $\mathcal{M}$ around $x$.</em></p>
+<h2 id="differentiating-vector-fields-on-curves">Differentiating Vector Fields on Curves
+</h2><p><strong>Definition 21</strong>. Let $c : I \to \mathcal{M}$ be a smooth curve on
+$\mathcal{M}$ defined on an open interval $I$.
+A map $Z : I \to \operatorname{T} _{}{\mathcal{M}}$ is a vector field on $c$ if $Z(t)$ is in $\operatorname{T} _{c(t)}{\mathcal{M}}$
+for all $t \in I$. Moreover, $Z$ is a smooth vector field on $c$ if it is also smooth as a map from $I$ to $\operatorname{T} _{}{\mathcal{M}}$. The set of smooth vector fields on c is denoted by $X(c)$.</p>
+<p><strong>Theorem 22</strong>. <a id="thm-induced-cov-deri"></a> <em>Let $c \colon I \to M$ be a smooth curve on a manifold
+equipped with a connection $\nabla$. There exists a unique operator
+$\frac{D}{dt} \colon \mathfrak{X}(c) \to \mathfrak{X}(c)$ which
+satisfies the following properties for all $Y, Z \in \mathfrak{X}(c)$,
+$U \in \mathfrak{X}(\mathcal{M})$, $g \in \mathfrak{F}(I)$, and
+$a, b \in \mathbb{R}$:</em></p>
+<ol>
+<li>
+<p><em><em>$\mathbb{R}$-linearity</em>:
+$\frac{D}{dt}(aY + bZ) = a\frac{D}{dt}Y + b\frac{D}{dt}Z$;</em></p>
+</li>
+<li>
+<p><em><em>Leibniz rule</em>:
+$\frac{D}{dt}(gZ) = \frac{dg}{dt}Z + g\frac{D}{dt}Z$;</em></p>
+</li>
+<li>
+<p><em><em>Chain rule</em>:
+$\left(\frac{D}{dt}(U \circ c)\right)(t) = \nabla_{c&rsquo;(t)}U$ for all
+$t \in I$;</em></p>
+</li>
+<li>
+<p><em><em>Product rule</em>: If $M$ is a Riemannian manifold and $\nabla$ is
+compatible with its metric (e.g., the Levi-Civita connection), then
+additionally:
+$$\frac{d}{dt}\langle Y, Z \rangle = \left\langle \frac{D}{dt}Y, Z \right\rangle + \left\langle Y, \frac{D}{dt}Z \right\rangle$$
+where the inner product $\langle \cdot, \cdot \rangle$ along $c$ is
+defined by
+$\langle Y, Z \rangle(t) = \langle Y(t), Z(t) \rangle _{c(t)}$.</em></p>
+</li>
+</ol>
+<p><em>We call $\frac{D}{dt}$ the <em>induced covariant derivative</em> (induced by
+$\nabla$).</em></p>
+<p><strong>Proposition 23</strong>. <em>Let $\mathcal{M}$ be an embedded submanifold of a
+Euclidean space $\mathcal{E}$ with connection $\nabla_{}{}$ as in
+<a class="link" href="#def-conn-proj" >Eq. 1</a>. The operator $\frac{D}{dt}$ defined by <a id="def-induced-cov-deri"></a>
+$$\frac{D}{dt} Z(t) = \operatorname{Proj}_{c(t)}{\left(\frac{\text{d}{}}{\text{d}{t}} Z(t)\right)}$$
+is the induced covariant derivative, that is, it satisfies properties
+1&ndash;3 in Theorem <a class="link" href="#thm-induced-cov-deri" >22</a>. If $\mathcal{M}$ is a Riemannian
+submanifold of $\mathcal{E}$, then $\frac{D}{dt}$ also satisfies
+property 4 in that same theorem.</em></p>
+<h2 id="acceleration-and-geodesics">Acceleration and Geodesics
+</h2><p><strong>Definition 24</strong>. Let $c : I \to \mathcal{M}$ be a smooth curve. Its
+velocity is the vector field $c&rsquo; \in \mathfrak{X}(c)$. The acceleration
+of $c$ is the smooth vector field $c&rsquo;&rsquo; \in \mathfrak{X}(c)$ defined by
+$c&rsquo;&rsquo; = \frac{D}{dt} c&rsquo;$. We also call $c&rsquo;&rsquo;$ the intrinsic acceleration
+of $c$.</p>
+<p><strong>Definition 25</strong>. On a Riemannian manifold $\mathcal{M}$, a geodesic is
+a smooth curve $c : I \to \mathcal{M}$ such that $c&rsquo;&rsquo;(t) = 0$ for all
+$t \in I$, where $I$ is an open interval of $\mathbb{R}$.</p>
+<h2 id="a-second-order-taylor-expansion-on-curves">A Second-order Taylor Expansion on Curves
+</h2><p><strong>Lemma 26</strong>. <em>Let $c(t)$ be a geodesic connecting $x = c(0)$ to
+$y = c(1)$, and assume $\operatorname{Hess}f(c(t)) \succeq \mu I$ for
+some $\mu\in \mathbb{R}$ and all $t\in [0,1]$. Then,
+$f(y) \ge f(x) + \langle \operatorname{grad}f(x), v\rangle _x + \frac{\mu}{2} \parallel v \parallel _x^2$.</em></p>
+<h2 id="second-order-retractions">Second-order Retractions
+</h2><p><strong>Definition 27</strong>. A second-order retraction $R$ on a Riemannian
+manifold $\mathcal{M}$ is a retraction such that, for all
+$x\in \mathcal{M}$ and all $v \in \operatorname{T}_{x}{\mathcal{M}}$,
+the curve $c(t) = R_x(tv)$ has zero acceleration at $t = 0$, that is,
+$c&rsquo;&rsquo;(0) = 0$.</p>
+<p><strong>Proposition 28</strong>.
+<em>Consider a Riemannian manifold $M$ equipped with any retraction $R$, and a smooth function $f: M \to \mathbb{R}$.
+If $x$ is a critical point of $f$ (that is, if $\mathrm{grad}f(x) = 0$), then</em>
+</p>
+$$f(R_x(s)) = f(x) + \frac{1}{2} \langle \mathrm{Hess}f(x)[s], s \rangle _x + O(\|s\|_x^3).$$<p>
+<em>Also, if $R$ is a second-order retraction, then for all points $x \in M$ we have</em>
+</p>
+$$f(R_x(s)) = f(x) + \langle \mathrm{grad}f(x), s \rangle _x + \frac{1}{2} \langle \mathrm{Hess}f(x)[s], s \rangle _x + O(\|s\|_x^3).$$<p><strong>Proposition 29</strong>. <em>If the retraction is second order or if
+$\operatorname{grad} f(x) = 0$, then</em>
+</p>
+$$\operatorname{Hess} f(x) = \operatorname{Hess} (f \circ R_x)(0),$$<p>
+<em>where the right-hand side is the Hessian of $f \circ R_x : \operatorname{T} _{x}{\mathcal{M}} \to \mathbb{R}$ at $0 \in \operatorname{T} _{x}{\mathcal{M}}$.
+The latter is a &ldquo;classical&rdquo; Hessian since $\operatorname{T} _{x}{\mathcal{M}}$ is a Euclidean space.</em></p>
+<h2 id="riemannian-submanifolds">Riemannian Submanifolds*
+</h2><h2 id="metric-projection-retractions">Metric Projection Retractions*
+</h2>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/optimization/">Optimization</a>
+        
+            <a href="/tags/manifold/">Manifold</a>
+        
+            <a href="/tags/second-order/">Second-Order</a>
+        
+            <a href="/tags/geometry/">Geometry</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/optimization-first-order-geometry-method/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Optimization - First Order Geometry &amp; Method</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 MooNight Xu
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.93886315dd537172148b0f4fbf2db233a67a594c2627f935e71d9f14684bfd13.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

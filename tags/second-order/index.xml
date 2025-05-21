@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Second-Order on MooNight Xu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/second-order/</link>
+        <description>Recent content in Second-Order on MooNight Xu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>MooNight Xu</copyright>
+        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/second-order/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Manifold Optimization - Second-Order Geometry: Connections and Hessians</title>
+        <link>http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/</guid>
+        <description>&lt;h1 id=&#34;manifold-optimization-second-order-geometry&#34;&gt;Manifold Optimization: Second-Order Geometry
+&lt;/h1&gt;&lt;hr&gt;
+&lt;h1 id=&#34;differentiating-vector-fields-on-manifolds-connections&#34;&gt;Differentiating Vector Fields on Manifolds: Connections
+&lt;/h1&gt;&lt;p&gt;Notion of derivative for vector fields on manifolds is called a &lt;em&gt;connection&lt;/em&gt; , traditionally denoted by $\nabla$ (&amp;quot;nabla&amp;quot;).
+Given a tangent vector $u \in T_x\mathcal{M}$ and a vector field $V$, $\nabla_uV$ is the derivative of $V$ at $x$ along $u$.
+Formally, we should write $\nabla_{(x,u)} V$ where the base point $x$ is typically clear from context.&lt;br&gt;
+&lt;strong&gt;Note that we do not need a Riemannian metric yet.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;::: definition
+&lt;strong&gt;Definition 1&lt;/strong&gt;. A &lt;em&gt;connection&lt;/em&gt; on a manifold $M$ is an operator
+&lt;/p&gt;
+$$\nabla \colon \operatorname{T}_{}{\mathcal{M}} \times \mathfrak{X}(\mathcal{M}) \to \operatorname{T}_{}{\mathcal{M}}: (u, V) \mapsto \nabla_u V$$&lt;p&gt;
+where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\operatorname{T}_{}{\mathcal{M}}$ is the tangent vector space&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\mathfrak{X}(\mathcal{M})$ denotes smooth vector fields on
+$\mathcal{M}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This operator must satisfy four properties for all
+$u,w \in \operatorname{T}_{}{\mathcal{M}}$,
+$U,V,W \in \mathfrak{X}(\mathcal{M})$, $a,b \in \mathbb{R}$, and
+$f \in C^\infty(\mathcal{M})$:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Smoothness&lt;/em&gt;: $(\nabla_UV)(x) \stackrel{\Delta}{=}\nabla_{U(x)}V$
+defines a smooth vector field $\nabla_UV$;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Linearity in $u$&lt;/em&gt;: $\nabla_{au + bw}V = a\nabla_uV + b\nabla_wV$;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Linearity in $V$&lt;/em&gt;: $\nabla_u(aV + bW) = a\nabla_uV + b\nabla_uW$;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Leibniz rule&lt;/em&gt;:
+$\nabla_u(fV) = \operatorname{D}{f}(x)[u]\cdot V(x) + f(x)\nabla_{u}{V}$.
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The field $\nabla_U V$ is called the &lt;em&gt;covariant derivative&lt;/em&gt; of $V$ along
+$U$ with respect to $\nabla$.&lt;/p&gt;
+&lt;p&gt;::: theorem
+&lt;strong&gt;Theorem 2&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be an embedded submanifold of a
+Euclidean space $\mathcal{E}$. The operator $\nabla$ defined by
+$$\nabla_{u}{V} = \operatorname{Proj}_{x}{\left(\operatorname{D}{\bar V}(x)[u]\right)} \label{def-conn-proj}$$
+is a connection on $\mathcal{M}$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: proof
+&lt;em&gt;Proof.&lt;/em&gt; Let $\mathcal{M}$ be an embedded submanifold of a Euclidean
+space $\mathcal{E}$ by $\bar \nabla$. Then
+$\nabla_u V = \operatorname{Proj}&lt;em&gt;{x}{\left(\bar\nabla&lt;/em&gt;{u}{\bar V}\right)}$. ◻
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 3&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be a maniflod with arbitrary
+connection $\nabla$. Given a smooth vector field
+$V \in \mathfrak{X}(\mathcal{M})$ and a point $x \in \mathcal{M}$, if
+$V(x) = 0$ then $\nabla_u V=\operatorname{D}{V}(x)[u]$ for all
+$u\in \operatorname{T}_{x}{\mathcal{M}}$. In particular,
+$\operatorname{D}{V}(x)[u]$ is tangent at $x$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;riemannian-connections&#34;&gt;Riemannian Connections
+&lt;/h1&gt;&lt;p&gt;::: definition
+&lt;strong&gt;Definition 4&lt;/strong&gt;. For $U, V \in \mathfrak{X}(\mathcal{M})$ and
+$f \in \mathfrak{F}(\mathcal{U})$ with $\mathcal{U}$ open in
+$\mathcal{M}$, define:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$Uf \in \mathfrak{F}(\mathcal{U})$ such that
+$(Uf)(x) = \operatorname{D}{f(}(x)[U(x)]$;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$[U, V]: \mathfrak{F}(\mathcal{U})\to \mathfrak{F}(\mathcal{U})$ such
+that $[U,V]f = U(Vf) - V(Uf)$;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\langle U, V\rangle \in \mathfrak{F}(\mathcal{M})$ such that
+$\langle U, V\rangle(x) = \langle U(x), V(x)\rangle_x$.
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The notation $Uf$ captures the action of a smooth vector field $U$ on a
+smooth function $f$ through derivation, transforming $f$ into another
+smooth function. The commutator $[U,V]$ of such action is called the Lie
+bracket. Even in linear spaces $[U, V ]f$ is nonzero in general. Notice
+that $Uf = \langle \operatorname{grad}f, U\rangle$ owing to the
+definitions of $Uf, \langle V, U\rangle$ and $\operatorname{grad} f$.&lt;/p&gt;
+&lt;p&gt;::: theorem
+&lt;strong&gt;Theorem 5&lt;/strong&gt;. &lt;em&gt;On a Riemannian manifold $\mathcal{M}$, there exists a
+unique connection $\nabla$ which satisfies two additional properties for
+all $U,V,W \in \mathfrak{X}(\mathcal{M})$:&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Symmetry: $[U, V] f = (\nabla_{U}{V} -\nabla_{V}{U}) f$ for all
+$f \in \mathfrak{F}(\mathcal{M})$;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Compatibility with the metric:
+$U\langle V,W\rangle = \langle\nabla_{U}{V},W\rangle+\langle V,\nabla_{U}{W}\rangle$.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;This connection is called the Levi-Civita or Riemannian connection.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: theorem
+&lt;strong&gt;Theorem 6&lt;/strong&gt;. &lt;em&gt;The Riemannian connection on a Euclidean space
+$\mathcal{E}$ with any Euclidean metric $\langle \cdot, \cdot \rangle$
+is $\nabla_{u}{V} = \operatorname{D}{V}(x)[u]$: the canonical Euclidean
+connection.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: theorem
+&lt;strong&gt;Theorem 7&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be an embedded submanifold of a
+Euclidean space $\mathcal{E}$. The connection $\nabla_{}{}$ defined by
+&lt;a class=&#34;link&#34; href=&#34;#def-conn-proj&#34; &gt;\[def-conn-proj\]&lt;/a&gt;{reference-type=&amp;ldquo;ref&amp;rdquo;
+reference=&amp;ldquo;def-conn-proj&amp;rdquo;} is symmetric on $\mathcal{M}$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: theorem
+&lt;strong&gt;Theorem 8&lt;/strong&gt;. &lt;em&gt;Let $M$ be a Riemannian submanifold of a Euclidean
+space. The connection $\nabla_{}{}$ defined by
+&lt;a class=&#34;link&#34; href=&#34;#def-conn-proj&#34; &gt;\[def-conn-proj\]&lt;/a&gt;{reference-type=&amp;ldquo;ref&amp;rdquo;
+reference=&amp;ldquo;def-conn-proj&amp;rdquo;} is the Riemannian connection on
+$\mathcal{M}$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 9&lt;/strong&gt;. &lt;em&gt;Let $U,V$ be two smooth vector fields on a manifold
+$\mathcal{M}$. There exists a unique smooth vector field $W$ on
+$\mathcal{M}$ such that $[U,V]f = Wf$ for all
+$f \in \mathfrak{F}(\mathcal{M})$. Therefore, we identify $[U,V]$ with
+that smooth vector field. Explicitly, if $\nabla_{}{}$ is any symmetric
+connection, then $[U,V ] = \nabla_{U}{V} - \nabla_{V}{U}$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;riemannian-hessians&#34;&gt;Riemannian Hessians
+&lt;/h1&gt;&lt;p&gt;::: definition
+&lt;strong&gt;Definition 10&lt;/strong&gt;. Let $\mathcal{M}$ be a Riemannian manifold with its
+Riemannian con nection $\nabla_{}{}$. The Riemannian Hessian of
+$f\in \mathfrak{F}(\mathcal{M})$ at $x\in \mathcal{M}$ is the linear map
+$\operatorname{Hess}f(x): \operatorname{T}&lt;em&gt;{x}{\mathcal{M}} \to \operatorname{T}&lt;/em&gt;{x}{\mathcal{M}}$
+defined as follows:
+&lt;/p&gt;
+$$\operatorname{Hess}f(x)[u] = \nabla_{u}{\operatorname{grad} f}.$$&lt;p&gt;
+Equivalently, $\operatorname{Hess}f$ maps $\mathfrak{X}(\mathcal{M})$ to
+$\mathfrak{X}(\mathcal{M})$ as
+$\operatorname{Hess}f[U] = \nabla_{U}{\operatorname{grad} f}$.
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 11&lt;/strong&gt;. &lt;em&gt;The Riemannian Hessian is self-adjoint with respect
+to the Riemannian metric. That is, for all $x\in \mathcal{M}$ and
+$u, v\in \operatorname{T}_{x}{\mathcal{M}}$,
+$\langle\operatorname{Hess}f(x)[u], v\rangle_x = \langle u, \operatorname{Hess}f(x)[v]\rangle_x$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: corollary
+&lt;strong&gt;Corollary 12&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be a Riemannian submanifold of a
+Euclidean space. Consider a smooth function
+$f : \mathcal{M}\to \mathbb{R}$. Let $\bar G$ be a smooth extension of
+$\operatorname{grad}f$&amp;mdash; that is, $\bar G$ is any smooth vector field
+defined on a neighborhood of $\mathcal{M}$ in the embedding space such
+that $\bar G(x) = \operatorname{grad}f(x)$ for all $x \in \mathcal{M}$.
+Then,
+$\operatorname{Hess}f(x)[u] = \operatorname{Proj}_{x}{\left(\operatorname{D}\bar G(x)[u]\right)}$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;connections-as-pointwise-derivatives&#34;&gt;Connections as Pointwise Derivatives*
+&lt;/h1&gt;&lt;p&gt;::: definition
+&lt;strong&gt;Definition 13&lt;/strong&gt;. A connection on a manifold $\mathcal{M}$ is an
+operator
+&lt;/p&gt;
+$$\nabla \colon \mathfrak{X}(\mathcal{M}) \times \mathfrak{X}(\mathcal{M}) \to \mathfrak{X}(\mathcal{M}): (U,V) \mapsto \nabla_{U}{V}$$&lt;p&gt;
+which has three properties for all
+$U ,V , W \in \mathfrak{X}(\mathcal{M})$,
+$f, g \in \mathfrak{F}(\mathcal{M})$ and $a, b \in \mathbb{R}$:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\mathfrak{F}(\mathcal{M})$-linearity in $U$:
+$\nabla_{fU+gW}{V} = f\nabla_{U}{V} + g\nabla_{W}{V}$;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\mathbb{R}$-linearity in $V$:
+$\nabla_{U}{(aV+bW)} = a\nabla_{U}{V} + b\nabla_{U}{W}$; and&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Leibniz rule: $\nabla_{U}{(fV)} = (Uf)V + f \nabla_{U}{V}$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The field $\nabla_{U}{V}$ is the covariant derivative of $V$ along $U$
+with respect to $\nabla_{}{}$.
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 14&lt;/strong&gt;. &lt;em&gt;For any connection $\nabla_{}{}$ and smooth vector
+fields $U,V$ on a manifold $\mathcal{M}$, the vector field
+$\nabla_{U}{V}$ at $x$ depends on $U$ only through $U(x)$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 15&lt;/strong&gt;. &lt;em&gt;Given any real numbers $0 &amp;lt; r_1 &amp;lt; r_2$ and any point $x$
+in a Euclidean space $\mathcal{E}$ with norm $|\cdot|$, there exists a
+smooth function $b: \mathcal{E}\to \mathbb{R}$ such that&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;$b(y) = 1$ if $\parallel y - x \parallel \leq r_1$;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;$b(y) = 0$ if $\parallel y - x \parallel \geq r_2$; and&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;$b(y) \in (0,1)$ if $\parallel y - x \parallel \in (r_1, r_2)$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using bump functions, we can show that $(\nabla_UV)(x)$ depends on $U$
+and $V$ only through their values in a neighborhood around $x$. This is
+the object of the two following lemmas.&lt;/p&gt;
+&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 16&lt;/strong&gt;. &lt;em&gt;Let $V_1, V_2$ be smooth vector fields on a manifold $M$
+equipped with a connection $\nabla_{}{}$. If
+$V_1 \mid_\mathcal{U}= V_2 \mid_\mathcal{U}$ on some open set
+$\mathcal{U}$ of $\mathcal{M}$, then
+$(\nabla_{U}{V_1})\mid_\mathcal{U}= (\nabla_{U}{V_2})\mid_\mathcal{U}$
+for all $U \in \mathfrak{X}(\mathcal{M})$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 17&lt;/strong&gt;. &lt;em&gt;Let $U_1, U_2$ be smooth vector fields on a manifold
+$\mathcal{M}$ equipped with a connection $\nabla_{}{}$. If
+$U_1\mid_\mathcal{U}= U_2\mid_\mathcal{U}$ on some open set
+$\mathcal{U}$ of $\mathcal{M}$, then
+$(\nabla_{U_1}{V})\mid_\mathcal{U}= (\nabla_{U_2}{V})\mid_\mathcal{U}$
+for all $V \in \mathfrak{X}(\mathcal{M})$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 18&lt;/strong&gt;. &lt;em&gt;Let $U$ be a neighborhood of a point $x$ on a manifold
+$\mathcal{M}$. Given a smooth function $f\in \mathfrak{F}(\mathcal{U})$,
+there exists a smooth function $g\in \mathfrak{F}(\mathcal{M})$ and a
+neighborhood $\mathcal{U}&amp;rsquo; \subseteq \mathcal{U}$ of $x$ such that
+$g\mid \mathcal{U}&amp;rsquo; = f\mid\mathcal{U}&amp;rsquo;$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 19&lt;/strong&gt;. &lt;em&gt;Let $U$ be a neighborhood of a point $x$ on a manifold
+$\mathcal{M}$. Given a smooth vector field
+$U \in \mathfrak{X}(\mathcal{U})$, there exists a smooth vector field
+$V \in \mathfrak{X}(\mathcal{M})$ and a neighborhood
+$\mathcal{U}&amp;rsquo; \subseteq \mathcal{U}$ of $x$ such that
+$V\mid_{\mathcal{U}&amp;rsquo;} = U\mid_{\mathcal{U}&amp;rsquo;}$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 20&lt;/strong&gt;. &lt;em&gt;Let $U, V$ be two smooth vector fields on a manifold
+$\mathcal{M}$ equipped with a connection $\nabla$. Further let
+$\mathcal{U}$ be a neighborhood of $x \in \mathcal{M}$ such that
+$U|&lt;em&gt;{\mathcal{u}} = g_1W_1 + \cdots + g_n W_n$ for some
+$g_1, \dots, g_n \in \mathfrak{F}(\mathcal{U})$ and
+$W_1, \dots, W_n \in \mathfrak{X}(\upsilon)$. Then,
+$$(\nabla_U V)(x) = g_1(x)(\nabla_{W_1}V)(x) + \cdots + g_n(x)(\nabla_{W_n}V)(x),$$
+where each vector $(\nabla&lt;/em&gt;{W_i}V)(x)$ is understood to mean
+$(\nabla_{\widetilde{W}_i}V)(x)$ with $\widetilde{W}_i$ any smooth
+extension of $W_i$ to $\mathcal{M}$ around $x$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;differentiating-vector-fields-on-curves&#34;&gt;Differentiating Vector Fields on Curves
+&lt;/h1&gt;&lt;p&gt;::: definition
+&lt;strong&gt;Definition 21&lt;/strong&gt;. Let $c : I \to \mathcal{M}$ be a smooth curve on
+$\mathcal{M}$ defined on an open interval $I$. A map
+$Z : I \to \operatorname{T}&lt;em&gt;{}{\mathcal{M}}$ is a vector field on $c$ if
+$Z(t)$ is in $\operatorname{T}&lt;/em&gt;{c(t)}{\mathcal{M}}$ for all $t \in I$.
+Moreover, $Z$ is a smooth vector field on $c$ if it is also smooth as a
+map from $I$ to $\operatorname{T}_{}{\mathcal{M}}$. The set of smooth
+vector fields on c is denoted by $X(c)$.
+:::&lt;/p&gt;
+&lt;p&gt;::: {#thm-induced-cov-deri .theorem}
+&lt;strong&gt;Theorem 22&lt;/strong&gt;. &lt;em&gt;Let $c \colon I \to M$ be a smooth curve on a manifold
+equipped with a connection $\nabla$. There exists a unique operator
+$\frac{D}{dt} \colon \mathfrak{X}(c) \to \mathfrak{X}(c)$ which
+satisfies the following properties for all $Y, Z \in \mathfrak{X}(c)$,
+$U \in \mathfrak{X}(\mathcal{M})$, $g \in \mathfrak{F}(I)$, and
+$a, b \in \mathbb{R}$:&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;em&gt;$\mathbb{R}$-linearity&lt;/em&gt;:
+$\frac{D}{dt}(aY + bZ) = a\frac{D}{dt}Y + b\frac{D}{dt}Z$;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;em&gt;Leibniz rule&lt;/em&gt;:
+$\frac{D}{dt}(gZ) = \frac{dg}{dt}Z + g\frac{D}{dt}Z$;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;em&gt;Chain rule&lt;/em&gt;:
+$\left(\frac{D}{dt}(U \circ c)\right)(t) = \nabla_{c&amp;rsquo;(t)}U$ for all
+$t \in I$;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;em&gt;Product rule&lt;/em&gt;: If $M$ is a Riemannian manifold and $\nabla$ is
+compatible with its metric (e.g., the Levi-Civita connection), then
+additionally:
+$$\frac{d}{dt}\langle Y, Z \rangle = \left\langle \frac{D}{dt}Y, Z \right\rangle + \left\langle Y, \frac{D}{dt}Z \right\rangle$$
+where the inner product $\langle \cdot, \cdot \rangle$ along $c$ is
+defined by
+$\langle Y, Z \rangle(t) = \langle Y(t), Z(t) \rangle_{c(t)}$.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;We call $\frac{D}{dt}$ the &lt;em&gt;induced covariant derivative&lt;/em&gt; (induced by
+$\nabla$).&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 23&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be an embedded submanifold of a
+Euclidean space $\mathcal{E}$ with connection $\nabla_{}{}$ as in
+&lt;a class=&#34;link&#34; href=&#34;#def-conn-proj&#34; &gt;\[def-conn-proj\]&lt;/a&gt;{reference-type=&amp;ldquo;ref&amp;rdquo;
+reference=&amp;ldquo;def-conn-proj&amp;rdquo;}. The operator $\frac{D}{dt}$ defined by
+$$\frac{D}{dt} Z(t) = \operatorname{Proj}_{c(t)}{\left(\frac{\text{d}{}}{\text{d}{t}} Z(t)\right)} \label{def-induced-cov-deri}$$
+is the induced covariant derivative, that is, it satisfies properties
+1&amp;ndash;3 in Theorem &lt;a class=&#34;link&#34; href=&#34;#thm-induced-cov-deri&#34; &gt;22&lt;/a&gt;{reference-type=&amp;ldquo;ref&amp;rdquo;
+reference=&amp;ldquo;thm-induced-cov-deri&amp;rdquo;}. If $\mathcal{M}$ is a Riemannian
+submanifold of $\mathcal{E}$, then $\frac{D}{dt}$ also satisfies
+property 4 in that same theorem.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;acceleration-and-geodesics&#34;&gt;Acceleration and Geodesics
+&lt;/h1&gt;&lt;p&gt;::: definition
+&lt;strong&gt;Definition 24&lt;/strong&gt;. Let $c : I \to \mathcal{M}$ be a smooth curve. Its
+velocity is the vector field $c&amp;rsquo; \in \mathfrak{X}(c)$. The acceleration
+of $c$ is the smooth vector field $c&amp;rsquo;&amp;rsquo; \in \mathfrak{X}(c)$ defined by
+$c&amp;rsquo;&amp;rsquo; = \frac{D}{dt} c&amp;rsquo;$. We also call $c&amp;rsquo;&amp;rsquo;$ the intrinsic acceleration
+of $c$.
+:::&lt;/p&gt;
+&lt;p&gt;::: definition
+&lt;strong&gt;Definition 25&lt;/strong&gt;. On a Riemannian manifold $\mathcal{M}$, a geodesic is
+a smooth curve $c : I \to \mathcal{M}$ such that $c&amp;rsquo;&amp;rsquo;(t) = 0$ for all
+$t \in I$, where $I$ is an open interval of $\mathbb{R}$.
+:::&lt;/p&gt;
+&lt;h1 id=&#34;a-second-order-taylor-expansion-on-curves&#34;&gt;A Second-order Taylor Expansion on Curves
+&lt;/h1&gt;&lt;p&gt;::: lemma
+&lt;strong&gt;Lemma 26&lt;/strong&gt;. &lt;em&gt;Let $c(t)$ be a geodesic connecting $x = c(0)$ to
+$y = c(1)$, and assume $\operatorname{Hess}f(c(t)) \succeq \mu I$ for
+some $\mu\in \mathbb{R}$ and all $t\in [0,1]$. Then,
+$f(y) \ge f(x) + \langle \operatorname{grad}f(x), v\rangle_x + \frac{\mu}{2} |v|_x^2$.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;second-order-retractions&#34;&gt;Second-order Retractions
+&lt;/h1&gt;&lt;p&gt;::: definition
+&lt;strong&gt;Definition 27&lt;/strong&gt;. A second-order retraction $R$ on a Riemannian
+manifold $\mathcal{M}$ is a retraction such that, for all
+$x\in \mathcal{M}$ and all $v \in \operatorname{T}_{x}{\mathcal{M}}$,
+the curve $c(t) = R_x(tv)$ has zero acceleration at $t = 0$, that is,
+$c&amp;rsquo;&amp;rsquo;(0) = 0$.
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 28&lt;/strong&gt;. &lt;em&gt;Consider a Riemannian manifold $M$ equipped with
+any retraction $R$, and a smooth function $f: M \to \mathbb{R}$. If $x$
+is a critical point of $f$ (that is, if $\mathrm{grad}f(x) = 0$), then
+$$f(R_x(s)) = f(x) + \frac{1}{2} \langle \mathrm{Hess}f(x)[s], s \rangle_x + O(\|s\|_x^3).$$
+Also, if $R$ is a second-order retraction, then for all points $x \in M$
+we have
+$$f(R_x(s)) = f(x) + \langle \mathrm{grad}f(x), s \rangle_x + \frac{1}{2} \langle \mathrm{Hess}f(x)[s], s \rangle_x + O(\|s\|_x^3).$$&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;p&gt;::: proposition
+&lt;strong&gt;Proposition 29&lt;/strong&gt;. &lt;em&gt;If the retraction is second order or if
+$\operatorname{grad}f(x) = 0$, then
+$$\operatorname{Hess}f(x) = \operatorname{Hess}(f \circ R_x)(0),$$ where
+the right-hand side is the Hessian of
+$f \circ R_x : \operatorname{T}&lt;em&gt;{x}{\mathcal{M}} \to \mathbb{R}$ at
+$0 \in \operatorname{T}&lt;/em&gt;{x}{\mathcal{M}}$. The latter is a &amp;ldquo;classical&amp;rdquo;
+Hessian since $\operatorname{T}_{x}{\mathcal{M}}$ is a Euclidean space.&lt;/em&gt;
+:::&lt;/p&gt;
+&lt;h1 id=&#34;riemannian-submanifolds&#34;&gt;Riemannian Submanifolds*
+&lt;/h1&gt;&lt;h1 id=&#34;metric-projection-retractions&#34;&gt;Metric Projection Retractions*
+&lt;/h1&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
