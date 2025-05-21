@@ -57,13 +57,28 @@ $U$ with respect to $\nabla$.&lt;/p&gt;
 Euclidean space $\mathcal{E}$. The operator $\nabla$ defined by&lt;/em&gt; &lt;a id=&#34;def-conn-proj&#34;&gt;&lt;/a&gt;
 &lt;/p&gt;
 $$\nabla_{u}{V} = \operatorname{Proj}_{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)} \tag{Eq. 1}$$&lt;p&gt;
-&lt;em&gt;is a connection on $\mathcal{M}$.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Proof.&lt;/em&gt; Let $\mathcal{M}$ be an embedded submanifold of a Euclidean
-space $\mathcal{E}$ by $\bar \nabla$. Then
+&lt;em&gt;is a connection on $\mathcal{M}$, where $\operatorname{Proj}_{x}$ is the projector from $\mathcal{E}$ to the tangent vector space $\operatorname{T} _x(\mathcal{M})$.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;/strong&gt;
+Let $\mathcal{M}$ be an embedded submanifold of a Euclidean space $\mathcal{E}$ by $\bar \nabla$. Then
 &lt;/p&gt;
 $$\nabla_u V = \operatorname{Proj}_{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)} = \operatorname{Proj}_{x} {\left(\bar\nabla_{u}{\bar V}\right)}.$$&lt;p&gt;
-Projection is a linear operation which maintains the properties of connections. □&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Proposition 3&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be a maniflod with arbitrary
+Projection is a linear operation which maintains the properties (linearities of $u, V$) of connections $\nabla_u V$, hence $\operatorname{Proj}_{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)}$ is a connection on $\mathcal{M}$.&lt;/p&gt;
+&lt;p&gt;Details:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If $M$ is a submanifold of $\mathcal{E}$, the claim is clear since $\operatorname{Proj}_x$ is identity and we can take $\bar V = V$.&lt;/li&gt;
+&lt;li&gt;Suppose $M$ is a manifold not open in $\mathcal{E}$. Consider $U,V,W \in \mathfrak{X}(\mathcal{M})$ together with smooth extensions $\bar U, \bar V, \bar W \in \mathfrak{X}(O)$ defined on a neighborhood $O$ of $\mathcal{M}$. $\bar \nabla$ is a connection on $O$ since $O$ is an open submanifold of $E$. Consider $a, b \in \mathbb{R}$ and $u, w\in \operatorname{T} _x \mathcal{M}$. Then,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Since projection is a linear operation, $\nabla _u V = \operatorname{Proj} _{x} {\left(\bar\nabla _{u}{\bar V}\right)}$ is a smooth vector field;&lt;/li&gt;
+&lt;li&gt;$$\begin{aligned}\nabla _{au+bw} V &amp;= \operatorname{Proj}_x (\bar \nabla _{au+bw} \bar V) \\ &amp;= \operatorname{Proj}_x (a\bar \nabla _{u} \bar V + b \bar \nabla _{w} \bar V) \\ &amp;= a \nabla _{u} V + b \nabla _{w} V \end{aligned}$$&lt;/li&gt;
+&lt;li&gt;$$\begin{aligned}\nabla _{u} (aV+bW) &amp;= \operatorname{Proj}_x \left(\bar \nabla _{u} (a\bar V+b\bar W)\right) \\ &amp;= \operatorname{Proj}_x (a\bar \nabla _{u} \bar V + b \bar \nabla _{u} \bar W) \\ &amp;= a \nabla _{u} V + b \nabla _{u} W \end{aligned}$$&lt;/li&gt;
+&lt;li&gt;To verify the Leibniz rule, consider an arbitrary $f\in \mathfrak{F}(\mathcal{M})$ and smooth extension $\bar f \in \mathfrak{F}(O)$.
+$$\begin{aligned}\nabla _{u} (fV) &amp;= \operatorname{Proj}_x \left(\bar \nabla _{u} (\bar f \bar V)\right) \\ &amp;= \operatorname{Proj}_x (\operatorname{D} \bar f (x) [u] \cdot \bar V(x) + \bar f(x) \bar \nabla _{u} \bar V) \\ &amp;= \operatorname{D} f (x) [u] \cdot V(x) + f(x) \nabla _{u} V \end{aligned}$$
+Hence, $\nabla _{U} V$ with $\nabla _{u} V= \operatorname{Proj} _{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)}$ is a connection on $\mathcal{M}$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proposition 3&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be a manifold with arbitrary
 connection $\nabla$. Given a smooth vector field
 $V \in \mathfrak{X}(\mathcal{M})$ and a point $x \in \mathcal{M}$, if
 $V(x) = 0$ then $\nabla_u V=\operatorname{D}{V}(x)[u]$ for all

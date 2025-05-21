@@ -74,11 +74,11 @@ Projection is a linear operation which maintains the properties (linearities of 
 &lt;li&gt;$$\begin{aligned}\nabla _{au+bw} V &amp;= \operatorname{Proj}_x (\bar \nabla _{au+bw} \bar V) \\ &amp;= \operatorname{Proj}_x (a\bar \nabla _{u} \bar V + b \bar \nabla _{w} \bar V) \\ &amp;= a \nabla _{u} V + b \nabla _{w} V \end{aligned}$$&lt;/li&gt;
 &lt;li&gt;$$\begin{aligned}\nabla _{u} (aV+bW) &amp;= \operatorname{Proj}_x \left(\bar \nabla _{u} (a\bar V+b\bar W)\right) \\ &amp;= \operatorname{Proj}_x (a\bar \nabla _{u} \bar V + b \bar \nabla _{u} \bar W) \\ &amp;= a \nabla _{u} V + b \nabla _{u} W \end{aligned}$$&lt;/li&gt;
 &lt;li&gt;To verify the Leibniz rule, consider an arbitrary $f\in \mathfrak{F}(\mathcal{M})$ and smooth extension $\bar f \in \mathfrak{F}(O)$.
-$$\begin{aligned}\nabla _{u} (fV) &amp;= \operatorname{Proj}_x (\bar \nabla _{u} \bar f \bar V) \\ &amp;= \operatorname{Proj}_x (\operatorname{D} \bar f (x) [u] \cdot \bar V(x) + \bar f(x) \bar \nabla _{u} \bar V) \\ &amp;= \operatorname{D} f (x) [u] \cdot V(x) + f(x) \nabla _{u} V \end{aligned}$$
+$$\begin{aligned}\nabla _{u} (fV) &amp;= \operatorname{Proj}_x \left(\bar \nabla _{u} (\bar f \bar V)\right) \\ &amp;= \operatorname{Proj}_x (\operatorname{D} \bar f (x) [u] \cdot \bar V(x) + \bar f(x) \bar \nabla _{u} \bar V) \\ &amp;= \operatorname{D} f (x) [u] \cdot V(x) + f(x) \nabla _{u} V \end{aligned}$$
 Hence, $\nabla _{U} V$ with $\nabla _{u} V= \operatorname{Proj} _{x} {\left(\operatorname{D}{\bar V}(x)[u]\right)}$ is a connection on $\mathcal{M}$.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Proposition 3&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be a maniflod with arbitrary
+&lt;p&gt;&lt;strong&gt;Proposition 3&lt;/strong&gt;. &lt;em&gt;Let $\mathcal{M}$ be a manifold with arbitrary
 connection $\nabla$. Given a smooth vector field
 $V \in \mathfrak{X}(\mathcal{M})$ and a point $x \in \mathcal{M}$, if
 $V(x) = 0$ then $\nabla_u V=\operatorname{D}{V}(x)[u]$ for all

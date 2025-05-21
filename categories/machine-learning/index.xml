@@ -7,17 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>First Order Method</title>
-        <link>http://localhost:1313/p/first-order-method/</link>
-        <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+        <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Flow Method</title>
+        <link>http://localhost:1313/p/flow-method/</link>
+        <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/first-order-method/</guid>
-        <description>&lt;p&gt;\begin{frame}{Composition of Linear Transformations}
-\begin{theorem}
-\end{teh}
-\end{frame}&lt;/p&gt;
-</description>
+        <guid>http://localhost:1313/p/flow-method/</guid>
+        <description></description>
         </item>
         
     </channel>
