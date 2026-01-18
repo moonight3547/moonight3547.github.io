@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Properties of groups and subgroups">
-<title>Abstract Algebra - Groups and Subgroups</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Properties of group action and coloring counting in combinatorics problems">
+<title>Abstract Algebra - Group Action and Combinatorial Counting</title>
 
-<link rel='canonical' href='https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/'>
+<link rel='canonical' href='https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Abstract Algebra - Groups and Subgroups">
-<meta property='og:description' content="Properties of groups and subgroups">
-<meta property='og:url' content='https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Abstract Algebra - Group Action and Combinatorial Counting">
+<meta property='og:description' content="Properties of group action and coloring counting in combinatorics problems">
+<meta property='og:url' content='https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/'>
 <meta property='og:site_name' content='MooNight Xu&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='algebra' /><meta property='article:tag' content='group' /><meta property='article:published_time' content='2026-01-18T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-18T00:00:00&#43;00:00'/><meta property='og:image' content='https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/rubik-cube-group.jpg' />
-<meta name="twitter:title" content="Abstract Algebra - Groups and Subgroups">
-<meta name="twitter:description" content="Properties of groups and subgroups"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/rubik-cube-group.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='algebra' /><meta property='article:tag' content='group' /><meta property='article:tag' content='counting' /><meta property='article:published_time' content='2026-01-18T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-18T00:00:00&#43;00:00'/><meta property='og:image' content='https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group.jpg' />
+<meta name="twitter:title" content="Abstract Algebra - Group Action and Combinatorial Counting">
+<meta name="twitter:description" content="Properties of group action and coloring counting in combinatorics problems"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group.jpg' />
     </head>
     <body class="
     article-page
@@ -246,11 +246,18 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#groups">Groups</a></li>
-    <li><a href="#subgroups">Subgroups</a></li>
-    <li><a href="#cyclic-groups">Cyclic Groups</a></li>
-    <li><a href="#generating-sets-and-cayley-digraphs">Generating Sets and Cayley Digraphs</a></li>
-    <li><a href="#cosets-and-lagranges-theorem">Cosets and Lagrange&rsquo;s Theorem</a></li>
+    <li><a href="#group-action">Group Action</a>
+      <ol>
+        <li><a href="#group-action-on-a-set">Group Action on a Set</a></li>
+        <li><a href="#orbit">Orbit</a></li>
+        <li><a href="#stablizer">Stablizer</a></li>
+        <li><a href="#orbit-stablizer-theorem">Orbit-Stablizer Theorem</a></li>
+        <li><a href="#stationary-points">Stationary Points</a></li>
+        <li><a href="#burnside-lemma">Burnside Lemma</a></li>
+        <li><a href="#polya-counting-principle-coloring-problem">Polya Counting Principle (Coloring Problem)</a></li>
+        <li><a href="#how-to-solve-rubiks-cube-problem-still-open-for-me">How to Solve Rubik&rsquo;s Cube Problem? (still OPEN for me)</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -265,13 +272,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/abstract-algebra-groups-and-subgroups/">
-                <img src="/p/abstract-algebra-groups-and-subgroups/rubik-cube-group_hu_7e54695b6b9e133c.jpg"
-                        srcset="/p/abstract-algebra-groups-and-subgroups/rubik-cube-group_hu_7e54695b6b9e133c.jpg 800w, /p/abstract-algebra-groups-and-subgroups/rubik-cube-group_hu_b81435431a293289.jpg 1600w"
+            <a href="/p/abstract-algebra-group-action-and-combinatorial-counting/">
+                <img src="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group_hu_7e54695b6b9e133c.jpg"
+                        srcset="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group_hu_7e54695b6b9e133c.jpg 800w, /p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group_hu_b81435431a293289.jpg 1600w"
                         width="800" 
                         height="236" 
                         loading="lazy"
-                        alt="Featured image of post Abstract Algebra - Groups and Subgroups" />
+                        alt="Featured image of post Abstract Algebra - Group Action and Combinatorial Counting" />
                 
             </a>
         </div>
@@ -290,12 +297,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/abstract-algebra-groups-and-subgroups/">Abstract Algebra - Groups and Subgroups</a>
+            <a href="/p/abstract-algebra-group-action-and-combinatorial-counting/">Abstract Algebra - Group Action and Combinatorial Counting</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            Properties of groups and subgroups
+            Properties of group action and coloring counting in combinatorics problems
         </h3>
         
     </div>
@@ -331,7 +338,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -346,12 +353,77 @@
     <section class="article-content">
     
     
-    <h2 id="groups">Groups
-</h2><h2 id="subgroups">Subgroups
-</h2><h2 id="cyclic-groups">Cyclic Groups
-</h2><h2 id="generating-sets-and-cayley-digraphs">Generating Sets and Cayley Digraphs
-</h2><h2 id="cosets-and-lagranges-theorem">Cosets and Lagrange&rsquo;s Theorem
-</h2>
+    <h2 id="group-action">Group Action
+</h2><p>Starting from Rubik’s Cube.
+<a class="link" href="https://www.xiaohongshu.com/explore/6964e76a000000001a02d55c?app_platform=ios&amp;app_version=9.17.2&amp;share_from_user_hidden=true&amp;xsec_source=app_share&amp;type=video&amp;xsec_token=CB3zUUZQnVeQ6it2gmI1-VyPMSudqPlik1wapZPLm-Zdo=&amp;author_share=1&amp;xhsshare=WeixinSession&amp;shareRedId=ODs1NkU1ST42NzUyOTgwNjY5OTc4SDhM&amp;apptime=1768700237&amp;share_id=5de8e6355a5c4e0ea586a7db3e058987"  target="_blank" rel="noopener"
+    >Visualization of Rubik’s Cube</a></p>
+<p><img src="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-visual.jpg"
+	width="1196"
+	height="1114"
+	srcset="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-visual_hu_b3787ee304713dd.jpg 480w, /p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-visual_hu_d7986c1eebe99816.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="107"
+		data-flex-basis="257px"
+	
+> <img src="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube.jpg"
+	width="1012"
+	height="1004"
+	srcset="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube_hu_bb4aaebfbbdcbef2.jpg 480w, /p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube_hu_dd7a6c85648320a5.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="241px"
+	
+></p>
+<h3 id="group-action-on-a-set">Group Action on a Set
+</h3><p>Given a group $G$ and a set $X$ with the mapping $G\times X \to X$, denoting the mapping of $(g, x)$ under the mapping as $g\cdot x$. If there exists $e\in G$ so that $e\cdot x = x$, and $g_1\cdot (g_2\cdot x) = (g_1g_2)\cdot x$ for any $g_1,g_2\in G, x\in X$,  then the mapping is a (left) group action for group $G$ on the set $X$.  The mapping can also be written as $gx$.</p>
+<h3 id="orbit">Orbit
+</h3><p>Given a group action $G$ on the set $X$. Assume an element $x\in X$. $Gx=\{gx\mid g\in G\}$ is the orbit for $x$.</p>
+<h3 id="stablizer">Stablizer
+</h3><p>Given the group action for group $G$ over the set $X$. Denote $G_x = \{g\in G \mid gx = x\}$ as the the stablizer for group $G$ at $x$, which is a subgroup of $G$, i.e. $G_x \le G$.</p>
+<details open>
+<blockquote>
+<p><strong>Proof.</strong>
+$G_x = \{g\in G \mid gx = x\}$ is a subset of $G$. Thus, the associativity is satisfied. Still need to prove the closure of the binary operation $\cdot$, the existence of identity and inverse for each element.</p>
+<ol>
+<li>Closure: For any $g_1,g_2 \in G_x$, i.e. $g_1x=g_2x=x$, we have $(g_1\cdot g_2) x = g_1 (g_2 x) = g_1 x = x$, i.e. $g_1\cdot g_2 \in G_x$.</li>
+<li>Identity: The identity $e\in G$ satisfies $e x = x$ , i.e. $e \in G_x$.</li>
+<li>Inverse: For any $g \in G_x$, i.e. $gx = x$, consider its inverse $g^{-1}$ in $G$, then $g^{-1}x = g^{-1} (gx) = (g^{-1} \cdot g) x = e x = x$, i.e. $g^{-1} \in G_x$.
+Therefore, $G_x$ is a subgroup of $G$.</li>
+</ol>
+<p style="text-align: right;">$\square$</p></blockquote>
+</details>
+<h3 id="orbit-stablizer-theorem">Orbit-Stablizer Theorem
+</h3><p>Consider the group action for finite group $G$ over the set $X$. Assume $x\in X$. Then $|Gx| = [G : G_x] = |G| / |G_x|$.</p>
+<details open>
+<blockquote>
+<p><strong>Proof.</strong>
+Actually, there exists a bijective mapping between $Gx \times G_x$ and $G$.</p>
+<p><em>Forward Direction</em> Consider any $y \in Gx, h \in G_x$. By definition, $hx = x$. By definition, there exists possibly multiple $g \in G$ s.t. $gx = y$. For each $y$, select one representative $g_y$.  Then, $(g_y \cdot h) x = g_y (hx) = g_y x = y$ for $g_y\cdot h \in G$.</p>
+<p><em>Backward Direction</em> Consider any $g \in G$. Let $y = gx \in Gx$. There exists a representative $g_y \in G$ with $g_y x = y$. Let $h = g_y^{-1} \cdot g \in G$. Then, $(g_y \cdot h) x = [(g_y \cdot g_y^{-1}) \cdot g] x = gx = y$. And, $h x = [(g_y^{-1} \cdot g_y) \cdot h] x = g_y^{-1} [(g_y\cdot h) x] = g_y^{-1} y = (g_y^{-1} \cdot g_y) x = x$, i.e. $h \in G_x$.</p>
+<p>Therefore, $|Gx|\times |G_x| = |Gx \times G_x| = |G|$.</p>
+<p style="text-align: right;">$\square$</p></blockquote>
+</details>
+<h3 id="stationary-points">Stationary Points
+</h3><p>Consider the group action for finite group $G$ over the set $X$. For any $g\in G$, $X^g = \{x\in X \mid gx = x\}$ is its corresponding set of stationary points.</p>
+<h3 id="burnside-lemma">Burnside Lemma
+</h3><p>Consider the group action for finite group $G$ over the set $X$. The number of orbits equals to the average number of stationary points for all elements $g\in G$. $|X/G| = \frac{1}{|G|} \sum\limits_{g\in G} |X^g|$.</p>
+<details open>
+<blockquote>
+<p><strong>Proof.</strong>
+It is an application of a common trick, <em>switching the sum order</em>.</p>
+<p>$|X / G| = \sum\limits_{x \in X} \frac{1}{|Gx|}= \sum\limits_{x \in X} \frac{|G_x|}{|G|} = \sum\limits_{x \in X} \frac{1}{|G|} \sum\limits_{g\in G}  \mathbb{I}(gx = x) = \frac{1}{|G|} \sum\limits_{g\in G} \sum\limits_{x \in X} \mathbb{I}(gx = x) = \frac{1}{|G|} \sum\limits_{g\in G} |X^g|$.</p>
+<p style="text-align: right;">$\square$</p></blockquote>
+</details>
+<h3 id="polya-counting-principle-coloring-problem">Polya Counting Principle (Coloring Problem)
+</h3><p>&hellip;</p>
+<h3 id="how-to-solve-rubiks-cube-problem-still-open-for-me">How to Solve Rubik&rsquo;s Cube Problem? (still OPEN for me)
+</h3>
 </section>
 
 
@@ -362,6 +434,8 @@
             <a href="/tags/algebra/">Algebra</a>
         
             <a href="/tags/group/">Group</a>
+        
+            <a href="/tags/counting/">Counting</a>
         
     </section>
 
@@ -421,15 +495,15 @@
             
                 
 <article class="has-image">
-    <a href="/p/abstract-algebra-group-action-and-combinatorial-counting/">
+    <a href="/p/abstract-algebra-groups-and-subgroups/">
         
         
             <div class="article-image">
-                <img src="/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group.5f07514649be4d001bea787ca5819796_hu_2334cb400850a0d6.jpg" 
+                <img src="/p/abstract-algebra-groups-and-subgroups/rubik-cube-group.5f07514649be4d001bea787ca5819796_hu_2334cb400850a0d6.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post Abstract Algebra - Group Action and Combinatorial Counting"
+                        alt="Featured image of post Abstract Algebra - Groups and Subgroups"
                         
                         data-hash="md5-XwdRRkm&#43;TQAb6nh8pYGXlg==">
                 
@@ -437,7 +511,7 @@
         
 
         <div class="article-details">
-            <h2 class="article-title">Abstract Algebra - Group Action and Combinatorial Counting</h2>
+            <h2 class="article-title">Abstract Algebra - Groups and Subgroups</h2>
         </div>
     </a>
 </article>

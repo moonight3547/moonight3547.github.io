@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Algebra on MooNight Xu&#39;s Blog</title>
-        <link>https://moonight3547.github.io/tags/algebra/</link>
-        <description>Recent content in Algebra on MooNight Xu&#39;s Blog</description>
+        <title>Counting on MooNight Xu&#39;s Blog</title>
+        <link>https://moonight3547.github.io/tags/counting/</link>
+        <description>Recent content in Counting on MooNight Xu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/tags/algebra/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/tags/counting/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Abstract Algebra - Group Action and Combinatorial Counting</title>
         <link>https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/</link>
         <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
@@ -84,19 +84,6 @@ It is an application of a common trick, &lt;em&gt;switching the sum order&lt;/em
 &lt;/h3&gt;&lt;p&gt;&amp;hellip;&lt;/p&gt;
 &lt;h3 id=&#34;how-to-solve-rubiks-cube-problem-still-open-for-me&#34;&gt;How to Solve Rubik&amp;rsquo;s Cube Problem? (still OPEN for me)
 &lt;/h3&gt;</description>
-        </item>
-        <item>
-        <title>Abstract Algebra - Groups and Subgroups</title>
-        <link>https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/</link>
-        <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
-        
-        <guid>https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/</guid>
-        <description>&lt;img src="https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/rubik-cube-group.jpg" alt="Featured image of post Abstract Algebra - Groups and Subgroups" /&gt;&lt;h2 id=&#34;groups&#34;&gt;Groups
-&lt;/h2&gt;&lt;h2 id=&#34;subgroups&#34;&gt;Subgroups
-&lt;/h2&gt;&lt;h2 id=&#34;cyclic-groups&#34;&gt;Cyclic Groups
-&lt;/h2&gt;&lt;h2 id=&#34;generating-sets-and-cayley-digraphs&#34;&gt;Generating Sets and Cayley Digraphs
-&lt;/h2&gt;&lt;h2 id=&#34;cosets-and-lagranges-theorem&#34;&gt;Cosets and Lagrange&amp;rsquo;s Theorem
-&lt;/h2&gt;</description>
         </item>
         
     </channel>

@@ -7,20 +7,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/tags/group/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Abstract Algebra - Group Action and Counting</title>
-        <link>https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/</link>
-        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/tags/group/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Abstract Algebra - Group Action and Combinatorial Counting</title>
+        <link>https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/</link>
+        <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
         
-        <guid>https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/</guid>
-        <description>&lt;img src="https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-group.jpg" alt="Featured image of post Abstract Algebra - Group Action and Counting" /&gt;&lt;h2 id=&#34;group-action&#34;&gt;Group Action
+        <guid>https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/</guid>
+        <description>&lt;img src="https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-group.jpg" alt="Featured image of post Abstract Algebra - Group Action and Combinatorial Counting" /&gt;&lt;h2 id=&#34;group-action&#34;&gt;Group Action
 &lt;/h2&gt;&lt;p&gt;Starting from Rubik’s Cube.
 &lt;a class=&#34;link&#34; href=&#34;https://www.xiaohongshu.com/explore/6964e76a000000001a02d55c?app_platform=ios&amp;amp;app_version=9.17.2&amp;amp;share_from_user_hidden=true&amp;amp;xsec_source=app_share&amp;amp;type=video&amp;amp;xsec_token=CB3zUUZQnVeQ6it2gmI1-VyPMSudqPlik1wapZPLm-Zdo=&amp;amp;author_share=1&amp;amp;xhsshare=WeixinSession&amp;amp;shareRedId=ODs1NkU1ST42NzUyOTgwNjY5OTc4SDhM&amp;amp;apptime=1768700237&amp;amp;share_id=5de8e6355a5c4e0ea586a7db3e058987&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Visualization of Rubik’s Cube&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-visual.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-visual.jpg&#34;
 	width=&#34;1196&#34;
 	height=&#34;1114&#34;
-	srcset=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-visual_hu_b3787ee304713dd.jpg 480w, https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-visual_hu_d7986c1eebe99816.jpg 1024w&#34;
+	srcset=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-visual_hu_b3787ee304713dd.jpg 480w, https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube-visual_hu_d7986c1eebe99816.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -28,10 +28,10 @@
 		data-flex-grow=&#34;107&#34;
 		data-flex-basis=&#34;257px&#34;
 	
-&gt; &lt;img src=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube.jpg&#34;
+&gt; &lt;img src=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube.jpg&#34;
 	width=&#34;1012&#34;
 	height=&#34;1004&#34;
-	srcset=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube_hu_bb4aaebfbbdcbef2.jpg 480w, https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube_hu_dd7a6c85648320a5.jpg 1024w&#34;
+	srcset=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube_hu_bb4aaebfbbdcbef2.jpg 480w, https://moonight3547.github.io/p/abstract-algebra-group-action-and-combinatorial-counting/rubik-cube_hu_dd7a6c85648320a5.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -43,13 +43,13 @@
 &lt;h3 id=&#34;group-action-on-a-set&#34;&gt;Group Action on a Set
 &lt;/h3&gt;&lt;p&gt;Given a group $G$ and a set $X$ with the mapping $G\times X \to X$, denoting the mapping of $(g, x)$ under the mapping as $g\cdot x$. If there exists $e\in G$ so that $e\cdot x = x$, and $g_1\cdot (g_2\cdot x) = (g_1g_2)\cdot x$ for any $g_1,g_2\in G, x\in X$,  then the mapping is a (left) group action for group $G$ on the set $X$.  The mapping can also be written as $gx$.&lt;/p&gt;
 &lt;h3 id=&#34;orbit&#34;&gt;Orbit
-&lt;/h3&gt;&lt;p&gt;Given a group action $G$ on the set $X$. Assume an element $x\in X$. $Gx={gx\mid g\in G}$ is the orbit for $x$.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;Given a group action $G$ on the set $X$. Assume an element $x\in X$. $Gx=\{gx\mid g\in G\}$ is the orbit for $x$.&lt;/p&gt;
 &lt;h3 id=&#34;stablizer&#34;&gt;Stablizer
-&lt;/h3&gt;&lt;p&gt;Given the group action for group $G$ over the set $X$. Denote $G_x = {g\in G \mid gx = x}$ as the the stablizer for group $G$ at $x$, which is a subgroup of $G$, i.e. $G_x \le G$.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;Given the group action for group $G$ over the set $X$. Denote $G_x = \{g\in G \mid gx = x\}$ as the the stablizer for group $G$ at $x$, which is a subgroup of $G$, i.e. $G_x \le G$.&lt;/p&gt;
 &lt;details open&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Proof.&lt;/strong&gt;
-$G_x = {g\in G \mid gx = x}$ is a subset of $G$. Thus, the associativity is satisfied. Still need to prove the closure of the binary operation $\cdot$, the existence of identity and inverse for each element.&lt;/p&gt;
+$G_x = \{g\in G \mid gx = x\}$ is a subset of $G$. Thus, the associativity is satisfied. Still need to prove the closure of the binary operation $\cdot$, the existence of identity and inverse for each element.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Closure: For any $g_1,g_2 \in G_x$, i.e. $g_1x=g_2x=x$, we have $(g_1\cdot g_2) x = g_1 (g_2 x) = g_1 x = x$, i.e. $g_1\cdot g_2 \in G_x$.&lt;/li&gt;
 &lt;li&gt;Identity: The identity $e\in G$ satisfies $e x = x$ , i.e. $e \in G_x$.&lt;/li&gt;
@@ -70,7 +70,7 @@ Actually, there exists a bijective mapping between $Gx \times G_x$ and $G$.&lt;/
 &lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/details&gt;
 &lt;h3 id=&#34;stationary-points&#34;&gt;Stationary Points
-&lt;/h3&gt;&lt;p&gt;Consider the group action for finite group $G$ over the set $X$. For any $g\in G$, $X^g = {x\in X \mid gx = x}$ is its corresponding set of stationary points.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;Consider the group action for finite group $G$ over the set $X$. For any $g\in G$, $X^g = \{x\in X \mid gx = x\}$ is its corresponding set of stationary points.&lt;/p&gt;
 &lt;h3 id=&#34;burnside-lemma&#34;&gt;Burnside Lemma
 &lt;/h3&gt;&lt;p&gt;Consider the group action for finite group $G$ over the set $X$. The number of orbits equals to the average number of stationary points for all elements $g\in G$. $|X/G| = \frac{1}{|G|} \sum\limits_{g\in G} |X^g|$.&lt;/p&gt;
 &lt;details open&gt;
@@ -88,7 +88,7 @@ It is an application of a common trick, &lt;em&gt;switching the sum order&lt;/em
         <item>
         <title>Abstract Algebra - Groups and Subgroups</title>
         <link>https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/</link>
-        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
         
         <guid>https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/</guid>
         <description>&lt;img src="https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/rubik-cube-group.jpg" alt="Featured image of post Abstract Algebra - Groups and Subgroups" /&gt;&lt;h2 id=&#34;groups&#34;&gt;Groups
