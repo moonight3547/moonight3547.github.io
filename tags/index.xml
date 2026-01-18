@@ -2,89 +2,105 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on MooNight Xu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/</link>
+        <link>https://moonight3547.github.io/tags/</link>
         <description>Recent content in Tags on MooNight Xu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Geometry</title>
-        <link>http://localhost:1313/tags/geometry/</link>
+        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Algebra</title>
+        <link>https://moonight3547.github.io/tags/algebra/</link>
         <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/geometry/</guid>
+        <guid>https://moonight3547.github.io/tags/algebra/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Geometry</title>
+        <link>https://moonight3547.github.io/tags/geometry/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://moonight3547.github.io/tags/geometry/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Group</title>
+        <link>https://moonight3547.github.io/tags/group/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://moonight3547.github.io/tags/group/</guid>
         <description></description>
         </item>
         <item>
         <title>Manifold</title>
-        <link>http://localhost:1313/tags/manifold/</link>
+        <link>https://moonight3547.github.io/tags/manifold/</link>
         <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/manifold/</guid>
+        <guid>https://moonight3547.github.io/tags/manifold/</guid>
         <description></description>
         </item>
         <item>
         <title>Optimization</title>
-        <link>http://localhost:1313/tags/optimization/</link>
+        <link>https://moonight3547.github.io/tags/optimization/</link>
         <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/optimization/</guid>
+        <guid>https://moonight3547.github.io/tags/optimization/</guid>
         <description></description>
         </item>
         <item>
         <title>Second-Order</title>
-        <link>http://localhost:1313/tags/second-order/</link>
+        <link>https://moonight3547.github.io/tags/second-order/</link>
         <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/second-order/</guid>
+        <guid>https://moonight3547.github.io/tags/second-order/</guid>
         <description></description>
         </item>
         <item>
         <title>Flow</title>
-        <link>http://localhost:1313/tags/flow/</link>
+        <link>https://moonight3547.github.io/tags/flow/</link>
         <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/flow/</guid>
+        <guid>https://moonight3547.github.io/tags/flow/</guid>
         <description></description>
         </item>
         <item>
         <title>Machine-Learning</title>
-        <link>http://localhost:1313/tags/machine-learning/</link>
+        <link>https://moonight3547.github.io/tags/machine-learning/</link>
         <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/machine-learning/</guid>
+        <guid>https://moonight3547.github.io/tags/machine-learning/</guid>
         <description></description>
         </item>
         <item>
         <title>First-Order</title>
-        <link>http://localhost:1313/tags/first-order/</link>
+        <link>https://moonight3547.github.io/tags/first-order/</link>
         <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/first-order/</guid>
+        <guid>https://moonight3547.github.io/tags/first-order/</guid>
         <description></description>
         </item>
         <item>
         <title>Block Matrix</title>
-        <link>http://localhost:1313/tags/block-matrix/</link>
+        <link>https://moonight3547.github.io/tags/block-matrix/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/block-matrix/</guid>
+        <guid>https://moonight3547.github.io/tags/block-matrix/</guid>
         <description></description>
         </item>
         <item>
         <title>Linear Algebra</title>
-        <link>http://localhost:1313/tags/linear-algebra/</link>
+        <link>https://moonight3547.github.io/tags/linear-algebra/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/linear-algebra/</guid>
+        <guid>https://moonight3547.github.io/tags/linear-algebra/</guid>
         <description></description>
         </item>
         <item>
         <title>Punching Hole</title>
-        <link>http://localhost:1313/tags/punching-hole/</link>
+        <link>https://moonight3547.github.io/tags/punching-hole/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/tags/punching-hole/</guid>
+        <guid>https://moonight3547.github.io/tags/punching-hole/</guid>
         <description></description>
         </item>
         

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Optimization on MooNight Xu&#39;s Blog</title>
-        <link>http://localhost:1313/categories/optimization/</link>
+        <link>https://moonight3547.github.io/categories/optimization/</link>
         <description>Recent content in Optimization on MooNight Xu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/optimization/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/categories/optimization/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Optimization - First Order Geometry &amp; Method</title>
-        <link>http://localhost:1313/p/optimization-first-order-geometry-method/</link>
+        <link>https://moonight3547.github.io/p/optimization-first-order-geometry-method/</link>
         <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/optimization-first-order-geometry-method/</guid>
+        <guid>https://moonight3547.github.io/p/optimization-first-order-geometry-method/</guid>
         <description></description>
         </item>
         

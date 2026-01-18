@@ -2,18 +2,109 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>MooNight Xu&#39;s Blog</title>
-        <link>http://localhost:1313/</link>
+        <link>https://moonight3547.github.io/</link>
         <description>Recent content on MooNight Xu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Manifold Optimization - Second-Order Geometry: Connections and Hessians</title>
-        <link>http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/</link>
+        <lastBuildDate>Wed, 21 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Abstract Algebra - Group Action and Counting</title>
+        <link>https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/</link>
         <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/</guid>
-        <description>&lt;img src="http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction.png" alt="Featured image of post Manifold Optimization - Second-Order Geometry: Connections and Hessians" /&gt;&lt;h2 id=&#34;differentiating-vector-fields-on-manifolds&#34;&gt;Differentiating Vector Fields on Manifolds
+        <guid>https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/</guid>
+        <description>&lt;img src="https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-group.jpg" alt="Featured image of post Abstract Algebra - Group Action and Counting" /&gt;&lt;h2 id=&#34;group-action&#34;&gt;Group Action
+&lt;/h2&gt;&lt;p&gt;Starting from Rubik’s Cube.
+&lt;a class=&#34;link&#34; href=&#34;https://www.xiaohongshu.com/explore/6964e76a000000001a02d55c?app_platform=ios&amp;amp;app_version=9.17.2&amp;amp;share_from_user_hidden=true&amp;amp;xsec_source=app_share&amp;amp;type=video&amp;amp;xsec_token=CB3zUUZQnVeQ6it2gmI1-VyPMSudqPlik1wapZPLm-Zdo=&amp;amp;author_share=1&amp;amp;xhsshare=WeixinSession&amp;amp;shareRedId=ODs1NkU1ST42NzUyOTgwNjY5OTc4SDhM&amp;amp;apptime=1768700237&amp;amp;share_id=5de8e6355a5c4e0ea586a7db3e058987&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Visualization of Rubik’s Cube&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-visual.jpg&#34;
+	width=&#34;1196&#34;
+	height=&#34;1114&#34;
+	srcset=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-visual_hu_b3787ee304713dd.jpg 480w, https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube-visual_hu_d7986c1eebe99816.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;107&#34;
+		data-flex-basis=&#34;257px&#34;
+	
+&gt; &lt;img src=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube.jpg&#34;
+	width=&#34;1012&#34;
+	height=&#34;1004&#34;
+	srcset=&#34;https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube_hu_bb4aaebfbbdcbef2.jpg 480w, https://moonight3547.github.io/p/abstract-algebra-group-action-and-counting/rubik-cube_hu_dd7a6c85648320a5.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;241px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;group-action-on-a-set&#34;&gt;Group Action on a Set
+&lt;/h3&gt;&lt;p&gt;Given a group $G$ and a set $X$ with the mapping $G\times X \to X$, denoting the mapping of $(g, x)$ under the mapping as $g\cdot x$. If there exists $e\in G$ so that $e\cdot x = x$, and $g_1\cdot (g_2\cdot x) = (g_1g_2)\cdot x$ for any $g_1,g_2\in G, x\in X$,  then the mapping is a (left) group action for group $G$ on the set $X$.  The mapping can also be written as $gx$.&lt;/p&gt;
+&lt;h3 id=&#34;orbit&#34;&gt;Orbit
+&lt;/h3&gt;&lt;p&gt;Given a group action $G$ on the set $X$. Assume an element $x\in X$. $Gx={gx\mid g\in G}$ is the orbit for $x$.&lt;/p&gt;
+&lt;h3 id=&#34;stablizer&#34;&gt;Stablizer
+&lt;/h3&gt;&lt;p&gt;Given the group action for group $G$ over the set $X$. Denote $G_x = {g\in G \mid gx = x}$ as the the stablizer for group $G$ at $x$, which is a subgroup of $G$, i.e. $G_x \le G$.&lt;/p&gt;
+&lt;details open&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;/strong&gt;
+$G_x = {g\in G \mid gx = x}$ is a subset of $G$. Thus, the associativity is satisfied. Still need to prove the closure of the binary operation $\cdot$, the existence of identity and inverse for each element.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Closure: For any $g_1,g_2 \in G_x$, i.e. $g_1x=g_2x=x$, we have $(g_1\cdot g_2) x = g_1 (g_2 x) = g_1 x = x$, i.e. $g_1\cdot g_2 \in G_x$.&lt;/li&gt;
+&lt;li&gt;Identity: The identity $e\in G$ satisfies $e x = x$ , i.e. $e \in G_x$.&lt;/li&gt;
+&lt;li&gt;Inverse: For any $g \in G_x$, i.e. $gx = x$, consider its inverse $g^{-1}$ in $G$, then $g^{-1}x = g^{-1} (gx) = (g^{-1} \cdot g) x = e x = x$, i.e. $g^{-1} \in G_x$.
+Therefore, $G_x$ is a subgroup of $G$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;h3 id=&#34;orbit-stablizer-theorem&#34;&gt;Orbit-Stablizer Theorem
+&lt;/h3&gt;&lt;p&gt;Consider the group action for finite group $G$ over the set $X$. Assume $x\in X$. Then $|Gx| = [G : G_x] = |G| / |G_x|$.&lt;/p&gt;
+&lt;details open&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;/strong&gt;
+Actually, there exists a bijective mapping between $Gx \times G_x$ and $G$.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Forward Direction&lt;/em&gt; Consider any $y \in Gx, h \in G_x$. By definition, $hx = x$. By definition, there exists possibly multiple $g \in G$ s.t. $gx = y$. For each $y$, select one representative $g_y$.  Then, $(g_y \cdot h) x = g_y (hx) = g_y x = y$ for $g_y\cdot h \in G$.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Backward Direction&lt;/em&gt; Consider any $g \in G$. Let $y = gx \in Gx$. There exists a representative $g_y \in G$ with $g_y x = y$. Let $h = g_y^{-1} \cdot g \in G$. Then, $(g_y \cdot h) x = [(g_y \cdot g_y^{-1}) \cdot g] x = gx = y$. And, $h x = [(g_y^{-1} \cdot g_y) \cdot h] x = g_y^{-1} [(g_y\cdot h) x] = g_y^{-1} y = (g_y^{-1} \cdot g_y) x = x$, i.e. $h \in G_x$.&lt;/p&gt;
+&lt;p&gt;Therefore, $|Gx|\times |G_x| = |Gx \times G_x| = |G|$.&lt;/p&gt;
+&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;h3 id=&#34;stationary-points&#34;&gt;Stationary Points
+&lt;/h3&gt;&lt;p&gt;Consider the group action for finite group $G$ over the set $X$. For any $g\in G$, $X^g = {x\in X \mid gx = x}$ is its corresponding set of stationary points.&lt;/p&gt;
+&lt;h3 id=&#34;burnside-lemma&#34;&gt;Burnside Lemma
+&lt;/h3&gt;&lt;p&gt;Consider the group action for finite group $G$ over the set $X$. The number of orbits equals to the average number of stationary points for all elements $g\in G$. $|X/G| = \frac{1}{|G|} \sum\limits_{g\in G} |X^g|$.&lt;/p&gt;
+&lt;details open&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;/strong&gt;
+It is an application of a common trick, &lt;em&gt;switching the sum order&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;$|X / G| = \sum\limits_{x \in X} \frac{1}{|Gx|}= \sum\limits_{x \in X} \frac{|G_x|}{|G|} = \sum\limits_{x \in X} \frac{1}{|G|} \sum\limits_{g\in G}  \mathbb{I}(gx = x) = \frac{1}{|G|} \sum\limits_{g\in G} \sum\limits_{x \in X} \mathbb{I}(gx = x) = \frac{1}{|G|} \sum\limits_{g\in G} |X^g|$.&lt;/p&gt;
+&lt;p style=&#34;text-align: right;&#34;&gt;$\square$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;h3 id=&#34;polya-counting-principle-coloring-problem&#34;&gt;Polya Counting Principle (Coloring Problem)
+&lt;/h3&gt;&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;how-to-solve-rubiks-cube-problem-still-open-for-me&#34;&gt;How to Solve Rubik&amp;rsquo;s Cube Problem? (still OPEN for me)
+&lt;/h3&gt;</description>
+        </item>
+        <item>
+        <title>Abstract Algebra - Groups and Subgroups</title>
+        <link>https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/</guid>
+        <description>&lt;img src="https://moonight3547.github.io/p/abstract-algebra-groups-and-subgroups/rubik-cube-group.jpg" alt="Featured image of post Abstract Algebra - Groups and Subgroups" /&gt;&lt;h2 id=&#34;groups&#34;&gt;Groups
+&lt;/h2&gt;&lt;h2 id=&#34;subgroups&#34;&gt;Subgroups
+&lt;/h2&gt;&lt;h2 id=&#34;cyclic-groups&#34;&gt;Cyclic Groups
+&lt;/h2&gt;&lt;h2 id=&#34;generating-sets-and-cayley-digraphs&#34;&gt;Generating Sets and Cayley Digraphs
+&lt;/h2&gt;&lt;h2 id=&#34;cosets-and-lagranges-theorem&#34;&gt;Cosets and Lagrange&amp;rsquo;s Theorem
+&lt;/h2&gt;</description>
+        </item>
+        <item>
+        <title>Manifold Optimization - Second-Order Geometry: Connections and Hessians</title>
+        <link>https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/</link>
+        <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/</guid>
+        <description>&lt;img src="https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction.png" alt="Featured image of post Manifold Optimization - Second-Order Geometry: Connections and Hessians" /&gt;&lt;h2 id=&#34;differentiating-vector-fields-on-manifolds&#34;&gt;Differentiating Vector Fields on Manifolds
 &lt;/h2&gt;&lt;h3 id=&#34;affine-connections&#34;&gt;Affine Connections
 &lt;/h3&gt;&lt;p&gt;Notion of derivative for vector fields on manifolds is called a &lt;em&gt;connection&lt;/em&gt; , traditionally denoted by $\nabla$ (&amp;quot;nabla&amp;quot;).
 Given a tangent vector $u \in T_x\mathcal{M}$ and a vector field $V$, $\nabla_uV$ is the derivative of $V$ at $x$ along $u$.
@@ -54,10 +145,10 @@ $\nabla_u(fV) = \operatorname{D}{f}(x)[u]\cdot V(x) + f(x)\nabla_{u}{V}$.&lt;/p&
 &lt;/ol&gt;
 &lt;p&gt;The field $\nabla_U V$ is called the &lt;em&gt;covariant derivative&lt;/em&gt; of $V$ along
 $U$ with respect to $\nabla$.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/affine-connection.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/affine-connection.png&#34;
 	width=&#34;640&#34;
 	height=&#34;653&#34;
-	srcset=&#34;http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/affine-connection_hu_9ec9fb91fe797906.png 480w, http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/affine-connection_hu_75edb534278f0929.png 1024w&#34;
+	srcset=&#34;https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/affine-connection_hu_9ec9fb91fe797906.png 480w, https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/affine-connection_hu_75edb534278f0929.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Affine Connection&#34;
@@ -403,10 +494,10 @@ some $\mu\in \mathbb{R}$ and all $t\in [0,1]$. Then,
 $f(y) \ge f(x) + \langle \operatorname{grad}f(x), v\rangle _x + \frac{\mu}{2} \parallel v \parallel _x^2$.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;second-order-retractions&#34;&gt;Second-Order Retractions
 &lt;/h2&gt;&lt;h3 id=&#34;second-order-retractions-on-riemannian-manifold&#34;&gt;Second-Order Retractions on Riemannian Manifold
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction.png&#34;
 	width=&#34;850&#34;
 	height=&#34;541&#34;
-	srcset=&#34;http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_e04c9fcdbd357f54.png 480w, http://localhost:1313/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_a7114bed13064563.png 1024w&#34;
+	srcset=&#34;https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_e04c9fcdbd357f54.png 480w, https://moonight3547.github.io/p/manifold-optimization-second-order-geometry-connections-and-hessians/manifold-retraction_hu_a7114bed13064563.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Retraction in Manifold Optimization&#34;
@@ -441,27 +532,27 @@ The latter is a &amp;ldquo;classical&amp;rdquo; Hessian since $\operatorname{T} 
         </item>
         <item>
         <title>Flow Method</title>
-        <link>http://localhost:1313/p/flow-method/</link>
+        <link>https://moonight3547.github.io/p/flow-method/</link>
         <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/flow-method/</guid>
+        <guid>https://moonight3547.github.io/p/flow-method/</guid>
         <description></description>
         </item>
         <item>
         <title>Optimization - First Order Geometry &amp; Method</title>
-        <link>http://localhost:1313/p/optimization-first-order-geometry-method/</link>
+        <link>https://moonight3547.github.io/p/optimization-first-order-geometry-method/</link>
         <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/optimization-first-order-geometry-method/</guid>
+        <guid>https://moonight3547.github.io/p/optimization-first-order-geometry-method/</guid>
         <description></description>
         </item>
         <item>
         <title>Linear Algebra - Punching Hole Technique on Matrices</title>
-        <link>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</link>
+        <link>https://moonight3547.github.io/p/linear-algebra-punching-hole-technique-on-matrices/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</guid>
-        <description>&lt;img src="http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/SMW-slide.jpg" alt="Featured image of post Linear Algebra - Punching Hole Technique on Matrices" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
+        <guid>https://moonight3547.github.io/p/linear-algebra-punching-hole-technique-on-matrices/</guid>
+        <description>&lt;img src="https://moonight3547.github.io/p/linear-algebra-punching-hole-technique-on-matrices/SMW-slide.jpg" alt="Featured image of post Linear Algebra - Punching Hole Technique on Matrices" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
 &lt;/h2&gt;&lt;p&gt;In the tutorial of MAT2041A Linear Algebra and Applications, I constructed a proof of the Sherman-Morrison-Woodbury Formula to demonstrate the potential of block matrices.&lt;/p&gt;
 &lt;h3 id=&#34;sherman-morrison-woodbury-formula&#34;&gt;Sherman-Morrison-Woodbury Formula
 &lt;/h3&gt;&lt;blockquote&gt;
@@ -560,18 +651,18 @@ $$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC})
         </item>
         <item>
         <title>Archives</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://moonight3547.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://moonight3547.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>About</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://moonight3547.github.io/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
+        <guid>https://moonight3547.github.io/about/</guid>
         <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Apache License 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
 &lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
@@ -596,10 +687,10 @@ $$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC})
         </item>
         <item>
         <title>Links</title>
-        <link>http://localhost:1313/links/</link>
+        <link>https://moonight3547.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/links/</guid>
+        <guid>https://moonight3547.github.io/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -631,10 +722,10 @@ $$\text{rank}(\mathbf{AB}) + \text{rank}(\mathbf{BC})
         </item>
         <item>
         <title>Search</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://moonight3547.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://moonight3547.github.io/search/</guid>
         <description></description>
         </item>
         

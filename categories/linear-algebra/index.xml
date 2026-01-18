@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Linear Algebra on MooNight Xu&#39;s Blog</title>
-        <link>http://localhost:1313/categories/linear-algebra/</link>
+        <link>https://moonight3547.github.io/categories/linear-algebra/</link>
         <description>Recent content in Linear Algebra on MooNight Xu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>MooNight Xu</copyright>
-        <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/linear-algebra/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://moonight3547.github.io/categories/linear-algebra/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Linear Algebra - Punching Hole Technique on Matrices</title>
-        <link>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</link>
+        <link>https://moonight3547.github.io/p/linear-algebra-punching-hole-technique-on-matrices/</link>
         <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/</guid>
-        <description>&lt;img src="http://localhost:1313/p/linear-algebra-punching-hole-technique-on-matrices/SMW-slide.jpg" alt="Featured image of post Linear Algebra - Punching Hole Technique on Matrices" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
+        <guid>https://moonight3547.github.io/p/linear-algebra-punching-hole-technique-on-matrices/</guid>
+        <description>&lt;img src="https://moonight3547.github.io/p/linear-algebra-punching-hole-technique-on-matrices/SMW-slide.jpg" alt="Featured image of post Linear Algebra - Punching Hole Technique on Matrices" /&gt;&lt;h2 id=&#34;introduction-a-proof-of-smw-formula&#34;&gt;Introduction: A Proof of SMW Formula
 &lt;/h2&gt;&lt;p&gt;In the tutorial of MAT2041A Linear Algebra and Applications, I constructed a proof of the Sherman-Morrison-Woodbury Formula to demonstrate the potential of block matrices.&lt;/p&gt;
 &lt;h3 id=&#34;sherman-morrison-woodbury-formula&#34;&gt;Sherman-Morrison-Woodbury Formula
 &lt;/h3&gt;&lt;blockquote&gt;
